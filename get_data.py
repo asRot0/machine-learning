@@ -1,13 +1,19 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 import os
-
-dataset = './datasets/housing/housing.csv'
 
 # pd.set_option('display.max_columns', None)
 # pd.options.display.max_columns = None
-os.environ['COLUMNS'] = '150'
+os.environ['COLUMNS'] = '200'
 
-data = pd.read_csv(dataset)
-# df = pd.DataFrame(data)
-# gdp = pd.read_csv(data, thousands=',', delimiter='\t', na_values='n/a')
-print(data.head())
+dataset = './datasets/housing/housing.csv'
+housing = pd.read_csv(dataset)
+
+print(housing.head())
+# print(housing.tail())
+print(housing.info())
+print(housing['ocean_proximity'].value_counts())
+print(housing.describe())
+
+housing.hist(bins=50, figsize=(20, 15))
+plt.show()
