@@ -1,20 +1,33 @@
+from sklearn.model_selection import train_test_split, StratifiedShuffleSplit
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+import os
 
+# os.environ['COLUMNS'] = '200'
 dataset = 'datasets/housing/housing.csv'
-data = pd.read_csv(dataset)
 
+housing = pd.read_csv(dataset)
 
-def split_train_test(data, test_ratio):
-    np.random.seed(42)
-    shuffled_indices = np.random.permutation(len(data))
-    print(shuffled_indices)
-    test_set_size = int(len(data)*test_ratio)
-    test_indices = shuffled_indices[:test_set_size]
-    train_indices = shuffled_indices[test_set_size:]
-    return train_indices, test_indices
+# train_set, test_set = train_test_split(housing, test_size=0.2, random_state=42)
 
+# housing['median_income'].hist()
+# plt.show()
 
-train_set, test_set = split_train_test(data, 0.2)
-print(len(data))
-print(len(train_set), len(test_set))
+housing['income_cat'] = np.ceil(housing['median_income'] / 1.5)
+print(housing.head())
+housing['income_cat'].where(housing['income_cat'] < 5, 5.0, inplace=True)
+print(housing.head())
+
+# housing['income_cat'].hist()
+# plt.show()
+
+split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+print(split)
+
+for train_index, test_index in split.split(housing, housing['income_cat']):
+    strat_train_set = housing.loc[train_index]
+    strat_test_set = housing.loc[test_index]
+
+print(housing['income_cat'].value_counts() / len(housing))
+
