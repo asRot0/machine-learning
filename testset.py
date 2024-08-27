@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-os.environ['COLUMNS'] = '200'
+# os.environ['COLUMNS'] = '200'
 dataset = 'datasets/housing/housing.csv'
 
 housing = pd.read_csv(dataset)
@@ -39,5 +39,11 @@ for set_ in (strat_train_set, strat_test_set):
 # print(strat_test_set.head())
 
 housing = strat_train_set.copy()
-housing.plot(kind='scatter', x='longitude', y='latitude', alpha=0.1)
+'''
+housing.plot(kind='scatter', x='longitude', y='latitude', alpha=0.4,
+             s=housing['population']/100, label='population', figsize=(10,7),
+             c='median_house_value', cmap=plt.get_cmap('jet'), colorbar=True)
+plt.legend()
 plt.show()
+'''
+
