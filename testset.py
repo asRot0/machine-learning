@@ -13,6 +13,7 @@ housing = pd.read_csv(dataset)
 
 # housing['median_income'].hist()
 # plt.show()
+print(housing.info())
 
 housing['income_cat'] = np.ceil(housing['median_income'] / 1.5)
 print(housing.head())
@@ -38,12 +39,19 @@ for set_ in (strat_train_set, strat_test_set):
     set_.drop('income_cat', axis=1, inplace=True)
 # print(strat_test_set.head())
 
-housing = strat_train_set.copy()
+# housing = strat_train_set.copy()
 '''
+housing = strat_train_set.copy()
 housing.plot(kind='scatter', x='longitude', y='latitude', alpha=0.4,
              s=housing['population']/100, label='population', figsize=(10,7),
              c='median_house_value', cmap=plt.get_cmap('jet'), colorbar=True)
 plt.legend()
 plt.show()
 '''
+
+# housing.drop('ocean_proximity', axis=1, inplace=True)
+corr_matrix = housing.corr(numeric_only=True)
+# corr_matrix = housing.select_dtypes(include=[float, int]).corr()
+print('correlations -----------------')
+print(corr_matrix['median_house_value'].sort_values(ascending=False))
 
