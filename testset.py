@@ -41,13 +41,17 @@ for set_ in (strat_train_set, strat_test_set):
 
 # housing = strat_train_set.copy()
 '''
-housing = strat_train_set.copy()
 housing.plot(kind='scatter', x='longitude', y='latitude', alpha=0.4,
              s=housing['population']/100, label='population', figsize=(10,7),
              c='median_house_value', cmap=plt.get_cmap('jet'), colorbar=True)
 plt.legend()
 plt.show()
 '''
+
+housing["rooms_per_household"] = housing["total_rooms"]/housing["households"]
+housing["bedrooms_per_room"] = housing["total_bedrooms"]/housing["total_rooms"]
+housing["population_per_household"] = housing["population"]/housing["households"]
+
 
 # housing.drop('ocean_proximity', axis=1, inplace=True)
 corr_matrix = housing.corr(numeric_only=True)
