@@ -1,4 +1,6 @@
 from sklearn.model_selection import train_test_split, StratifiedShuffleSplit
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import OrdinalEncoder
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -26,8 +28,8 @@ print(housing.head())
 split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
 print(split)
 
-strat_train_set = None
-strat_test_set = None
+strat_train_set = pd.DataFrame
+strat_test_set = pd.DataFrame
 
 for train_index, test_index in split.split(housing, housing['income_cat']):
     strat_train_set = housing.loc[train_index]
@@ -39,7 +41,7 @@ for set_ in (strat_train_set, strat_test_set):
     set_.drop('income_cat', axis=1, inplace=True)
 # print(strat_test_set.head())
 
-# housing = strat_train_set.copy()
+housing = pd.DataFrame(strat_train_set.copy())
 '''
 housing.plot(kind='scatter', x='longitude', y='latitude', alpha=0.4,
              s=housing['population']/100, label='population', figsize=(10,7),
@@ -59,3 +61,24 @@ corr_matrix = housing.corr(numeric_only=True)
 print('correlations -----------------')
 print(corr_matrix['median_house_value'].sort_values(ascending=False))
 
+housing = strat_train_set.drop('median_house_value', axis=1)
+housing_labels = strat_train_set['median_house_value'].copy()
+
+'''
+median = housing['total_bedrooms'].median()
+housing['total_bedrooms'].fillna(median, inplace=True)
+print(median, type(median))
+'''
+# print(housing.drop('ocean_proximity', axis=1).median().values)
+
+imputer = SimpleImputer(strategy='median')
+housing_num = housing.drop('ocean_proximity', axis=1)
+
+imputer.fit(housing_num)
+print(imputer.statistics_)
+
+X = imputer.transform(housing_num)
+housing_tr = pd.DataFrame(X, columns=housing_num.columns)
+
+housing_cat = housing[['ocean_proximity']]
+print(housing_cat.head())
