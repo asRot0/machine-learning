@@ -1,6 +1,6 @@
 from sklearn.model_selection import train_test_split, StratifiedShuffleSplit
 from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import OrdinalEncoder
+from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -81,4 +81,17 @@ X = imputer.transform(housing_num)
 housing_tr = pd.DataFrame(X, columns=housing_num.columns)
 
 housing_cat = housing[['ocean_proximity']]
-print(housing_cat.head())
+print(housing_cat.head(10))
+
+'''
+ordinal_encoder = OrdinalEncoder()
+housing_cat_encoder = ordinal_encoder.fit_transform(housing_cat)
+print(housing_cat_encoder[:10])
+print(ordinal_encoder.categories_)
+'''
+
+cat_encoder = OneHotEncoder()
+housing_cat_1hot = cat_encoder.fit_transform(housing_cat)
+print(cat_encoder.categories_)
+print(type(housing_cat_1hot))
+
