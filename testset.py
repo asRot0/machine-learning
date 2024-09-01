@@ -4,6 +4,9 @@ from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder, StandardScaler
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
+from sklearn.metrics import mean_squared_error
+from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -137,9 +140,40 @@ housing_num_tr = num_pipeline.fit_transform(housing_num)
 
 num_attribs = list(housing_num)
 cat_attribs = ["ocean_proximity"]
+
 full_pipeline = ColumnTransformer([
     ("num", num_pipeline, num_attribs),
     ("cat", OneHotEncoder(), cat_attribs),
  ])
 housing_prepared = full_pipeline.fit_transform(housing)
 
+# ----------------- model
+print('\n_ __'*10, '\n---> model\n')
+
+some_data = housing.iloc[:5]
+some_labels = housing_labels.iloc[:5]
+some_data_prepared = full_pipeline.transform(some_data)
+print('labels:', list(some_labels))
+print('_ __ housing_labels.iloc[:5] ```````````````````````````')
+
+# linear regression
+lin_reg = LinearRegression()
+lin_reg.fit(housing_prepared, housing_labels)
+
+print('[linear regression]~~~~~~\npredictions:', lin_reg.predict(some_data_prepared))
+
+housing_predictions = lin_reg.predict(housing_prepared)
+lin_mse = mean_squared_error(housing_labels, housing_predictions)
+lin_rmse = np.sqrt(lin_mse)
+print('error [linear regression]:', lin_rmse)
+
+# decision tree regressor
+tree_reg = DecisionTreeRegressor()
+tree_reg.fit(housing_prepared, housing_labels)
+
+housing_predictions = tree_reg.predict(housing_prepared)
+tree_mse = mean_squared_error(housing_labels, housing_predictions)
+tree_rmse = np.sqrt(tree_mse)
+
+print('[decision tree regressor]~~~~~~\npredictions:', tree_reg.predict(some_data_prepared))
+print('error [decision tree regressor]:', tree_rmse)
