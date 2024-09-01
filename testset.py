@@ -1,7 +1,9 @@
 from sklearn.model_selection import train_test_split, StratifiedShuffleSplit
 from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder
+from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder, StandardScaler
 from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.pipeline import Pipeline
+from sklearn.compose import ColumnTransformer
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -92,9 +94,11 @@ print(median, type(median))
 '''
 # print(housing.drop('ocean_proximity', axis=1).median().values)
 
-imputer = SimpleImputer(strategy='median')
 housing_num = housing.drop('ocean_proximity', axis=1)
 
+
+'''
+imputer = SimpleImputer(strategy='median')
 imputer.fit(housing_num)
 print(imputer.statistics_)
 
@@ -104,12 +108,14 @@ housing_tr = pd.DataFrame(X, columns=housing_num.columns)
 housing_cat = housing[['ocean_proximity']]
 print(housing_cat.head(10))
 
-'''
+
+"""
 ordinal_encoder = OrdinalEncoder()
 housing_cat_encoder = ordinal_encoder.fit_transform(housing_cat)
 print(housing_cat_encoder[:10])
 print(ordinal_encoder.categories_)
-'''
+"""
+
 
 cat_encoder = OneHotEncoder()
 housing_cat_1hot = cat_encoder.fit_transform(housing_cat)
@@ -119,4 +125,21 @@ print(type(housing_cat_1hot))
 attr_adder = CombinedAttributesAdder(add_bedrooms_per_room=False)
 housing_extra_attribs = attr_adder.transform(housing.values)
 # print(housing_extra_attribs)
+'''
+
+
+num_pipeline = Pipeline([
+    ('imputer', SimpleImputer(strategy="median")),
+    ('attribs_adder', CombinedAttributesAdder()),
+    ('std_scaler', StandardScaler()),
+ ])
+housing_num_tr = num_pipeline.fit_transform(housing_num)
+
+num_attribs = list(housing_num)
+cat_attribs = ["ocean_proximity"]
+full_pipeline = ColumnTransformer([
+    ("num", num_pipeline, num_attribs),
+    ("cat", OneHotEncoder(), cat_attribs),
+ ])
+housing_prepared = full_pipeline.fit_transform(housing)
 
