@@ -1,4 +1,4 @@
-from sklearn.model_selection import train_test_split, StratifiedShuffleSplit
+from sklearn.model_selection import train_test_split, StratifiedShuffleSplit, cross_val_score
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder, StandardScaler
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -7,6 +7,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.metrics import mean_squared_error
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -177,3 +178,22 @@ tree_rmse = np.sqrt(tree_mse)
 
 print('[decision tree regressor]~~~~~~\npredictions:', tree_reg.predict(some_data_prepared))
 print('error [decision tree regressor]:', tree_rmse)
+
+# using cross-validation for decision tree
+'''
+scores = cross_val_score(tree_reg, housing_prepared, housing_labels,
+                         scoring='neg_mean_squared_error', cv=10)
+tree_rmse_scores = np.sqrt(-scores)
+print(tree_rmse_scores.mean())
+'''
+
+# random forest regressor
+forest_reg = RandomForestRegressor()
+forest_reg.fit(housing_prepared, housing_labels)
+
+housing_predictions = forest_reg.predict(housing_prepared)
+forest_mse = mean_squared_error(housing_labels, housing_predictions)
+forest_rmse = np.sqrt(forest_mse)
+
+print('[random forest regressor]~~~~~~\npredictions:', forest_reg.predict(some_data_prepared))
+print('error [random forest regressor]:', forest_rmse)
