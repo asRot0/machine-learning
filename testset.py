@@ -1,4 +1,4 @@
-from sklearn.model_selection import train_test_split, StratifiedShuffleSplit, cross_val_score
+from sklearn.model_selection import train_test_split, StratifiedShuffleSplit, cross_val_score, GridSearchCV
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OrdinalEncoder, OneHotEncoder, StandardScaler
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -212,3 +212,10 @@ forest_rmse = np.sqrt(forest_mse)
 
 print('[random forest regressor]~~~~~~\npredictions:', forest_reg.predict(some_data_prepared))
 print('error [random forest regressor]:', forest_rmse)
+
+# grid search
+
+param_grid = [
+    {'n_estimators': [3, 10, 30], 'max_features': [2, 4, 6, 8]},
+    {'bootstrap': [False], 'n_estimators': [3, 10], 'max_features': [2, 3, 4]},]
+
