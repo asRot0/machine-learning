@@ -1,7 +1,7 @@
 from sklearn.datasets import fetch_openml
 from sklearn.linear_model import SGDClassifier
 from sklearn.model_selection import cross_val_score, cross_val_predict
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, precision_score, recall_score
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
@@ -63,3 +63,7 @@ print(cross_acuuracy)
 y_train_pred = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3)
 
 print(confusion_matrix(y_train_5, y_train_pred))
+
+print('presision score', precision_score(y_train_5, y_train_pred))
+print('recall score', recall_score(y_train_5, y_train_pred))
+
