@@ -6,6 +6,7 @@ from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 mnist = fetch_openml('mnist_784', version=1)
 
@@ -29,13 +30,13 @@ def pltDigit(index):
 
 
 def plot_precision_recall_vs_threshold(precisions, recalls, thresholds):
-    plt.plot(thresholds, precisions[:-1], "b--", label="Precision")
-    plt.plot(thresholds, recalls[:-1], "g-", label="Recall")
+    plt.plot(thresholds, precisions[:-1], 'b-', label='Precision')
+    plt.plot(thresholds, recalls[:-1], 'g-', label='Recall')
 
-    # Set the threshold
-    threshold = 0
+    # Set the threshold to 0.5
+    threshold = 0.5
 
-    # Find the closest threshold
+    # Find the closest threshold to 0.5
     closest_index = np.argmin(np.abs(thresholds - threshold))
 
     # Highlight the threshold with a vertical line
@@ -53,14 +54,15 @@ def plot_precision_recall_vs_threshold(precisions, recalls, thresholds):
     # Vertical line at the threshold (already drawn with axvline above)
 
     # Horizontal lines at precision and recall points
-    plt.axhline(y=precision_at_threshold, color='b', linestyle='-', label=f'Precision = {precision_at_threshold:.2f}')
-    plt.axhline(y=recall_at_threshold, color='g', linestyle='-', label=f'Recall = {recall_at_threshold:.2f}')
+    plt.axhline(y=precision_at_threshold, color='b', linestyle='--', label=f'Precision = {precision_at_threshold:.2f}')
+    plt.axhline(y=recall_at_threshold, color='g', linestyle='--', label=f'Recall = {recall_at_threshold:.2f}')
 
     # Labels, grid, and legend
-    plt.xlabel("Threshold")
-    plt.ylabel("Precision/Recall")
-    plt.legend(loc="best")
+    plt.xlabel('Threshold')
+    plt.ylabel('Precision/Recall')
+    plt.legend(loc='best')
     plt.grid(True)
+    plt.savefig(os.path.join('../plotfig', 'mnist_precision_recall_vs_threshold.png'))
 
 
 X_train, X_test, y_train, y_test = X[:60000], X[60000:], y[:60000], y[60000:]
