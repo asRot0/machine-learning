@@ -29,25 +29,38 @@ def pltDigit(index):
 
 
 def plot_precision_recall_vs_threshold(precisions, recalls, thresholds):
-    plt.plot(thresholds, precisions[:-1], 'b--', label='precision')
-    plt.plot(thresholds, recalls[:-1], 'g-', label='recall')
+    plt.plot(thresholds, precisions[:-1], "b--", label="Precision")
+    plt.plot(thresholds, recalls[:-1], "g-", label="Recall")
 
-    plt.xlabel('threshold')
-    plt.ylabel('precision/recall')
-    plt.legend()
-    plt.axis('off')
-    plt.grid(color='gray', linestyle='--', linewidth=0.5)
+    # Set the threshold
+    threshold = 0
 
-    # Highlight the threshold (example: threshold = 0.5)
-    threshold = 0.5
-    plt.axvline(x=threshold, color='r', linestyle='--', label='Threshold = 0.5')
+    # Find the closest threshold
+    closest_index = np.argmin(np.abs(thresholds - threshold))
 
-    # Highlight specific precision and recall at that threshold
-    precision_at_threshold = precisions[list(thresholds).index(threshold)]
-    recall_at_threshold = recalls[list(thresholds).index(threshold)]
+    # Highlight the threshold with a vertical line
+    plt.axvline(x=thresholds[closest_index], color='r', linestyle='--',
+                label=f'Threshold = {thresholds[closest_index]:.2f}')
 
-    plt.plot(threshold, precision_at_threshold, 'bo')  # Blue dot for precision
-    plt.plot(threshold, recall_at_threshold, 'go')  # Green dot for recall
+    # Get precision and recall at the closest threshold
+    precision_at_threshold = precisions[closest_index]
+    recall_at_threshold = recalls[closest_index]
+
+    # Highlight precision and recall points
+    plt.plot(thresholds[closest_index], precision_at_threshold, 'bo')  # Blue dot for precision
+    plt.plot(thresholds[closest_index], recall_at_threshold, 'go')  # Green dot for recall
+
+    # Vertical line at the threshold (already drawn with axvline above)
+
+    # Horizontal lines at precision and recall points
+    plt.axhline(y=precision_at_threshold, color='b', linestyle='-', label=f'Precision = {precision_at_threshold:.2f}')
+    plt.axhline(y=recall_at_threshold, color='g', linestyle='-', label=f'Recall = {recall_at_threshold:.2f}')
+
+    # Labels, grid, and legend
+    plt.xlabel("Threshold")
+    plt.ylabel("Precision/Recall")
+    plt.legend(loc="best")
+    plt.grid(True)
 
 
 X_train, X_test, y_train, y_test = X[:60000], X[60000:], y[:60000], y[60000:]
