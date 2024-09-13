@@ -2,7 +2,7 @@ from sklearn.datasets import fetch_openml
 from sklearn.linear_model import SGDClassifier
 from sklearn.base import BaseEstimator
 from sklearn.model_selection import cross_val_score, cross_val_predict
-from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, precision_recall_curve
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
@@ -26,6 +26,28 @@ def pltDigit(index):
     plt.imshow(some_digit_image, cmap=mpl.colormaps['PuBu'], interpolation='nearest')
     plt.axis('off')
     plt.show()
+
+
+def plot_precision_recall_vs_threshold(precisions, recalls, thresholds):
+    plt.plot(thresholds, precisions[:-1], 'b--', label='precision')
+    plt.plot(thresholds, recalls[:-1], 'g-', label='recall')
+
+    plt.xlabel('threshold')
+    plt.ylabel('precision/recall')
+    plt.legend()
+    plt.axis('off')
+    plt.grid(color='gray', linestyle='--', linewidth=0.5)
+
+    # Highlight the threshold (example: threshold = 0.5)
+    threshold = 0.5
+    plt.axvline(x=threshold, color='r', linestyle='--', label='Threshold = 0.5')
+
+    # Highlight specific precision and recall at that threshold
+    precision_at_threshold = precisions[list(thresholds).index(threshold)]
+    recall_at_threshold = recalls[list(thresholds).index(threshold)]
+
+    plt.plot(threshold, precision_at_threshold, 'bo')  # Blue dot for precision
+    plt.plot(threshold, recall_at_threshold, 'go')  # Green dot for recall
 
 
 X_train, X_test, y_train, y_test = X[:60000], X[60000:], y[:60000], y[60000:]
@@ -58,7 +80,8 @@ while True:
 some_digit = X.iloc[0]
 print(sgd_clf.predict([some_digit]))
 
-cross_acuuracy = cross_val_score(sgd_clf, X_train, y_train_5, cv=3, scoring='accuracy')
+cross_acuuracy = cross_val_score(sgd_clf, X_train, y_train_5, cv=3,
+                                 scoring='accuracy')
 print(cross_acuuracy)
 
 
@@ -71,7 +94,8 @@ class Never5Classifier(BaseEstimator):
 
 
 never_5_clf = Never5Classifier()
-print(cross_val_score(never_5_clf, X_train, y_train_5, cv=3, scoring='accuracy'))
+print(cross_val_score(never_5_clf, X_train, y_train_5, cv=3,
+                      scoring='accuracy'))
 
 y_train_pred = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3)
 print(confusion_matrix(y_train_5, y_train_pred))
@@ -79,3 +103,13 @@ print(confusion_matrix(y_train_5, y_train_pred))
 print('presision score', precision_score(y_train_5, y_train_pred))
 print('recall score', recall_score(y_train_5, y_train_pred))
 print('f1 score', f1_score(y_train_5, y_train_pred))
+
+y_scores = sgd_clf.decision_function([some_digit])
+print(y_scores)
+
+y_scores = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3,
+                             method='decision_function')
+
+precisions, recalls, thresholds = precision_recall_curve(y_train_5, y_scores)
+plot_precision_recall_vs_threshold(precisions, recalls, thresholds)
+plt.show()
