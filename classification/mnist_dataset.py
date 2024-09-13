@@ -2,7 +2,7 @@ from sklearn.datasets import fetch_openml
 from sklearn.linear_model import SGDClassifier
 from sklearn.base import BaseEstimator
 from sklearn.model_selection import cross_val_score, cross_val_predict
-from sklearn.metrics import confusion_matrix, precision_score, recall_score
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
@@ -78,4 +78,4 @@ print(confusion_matrix(y_train_5, y_train_pred))
 
 print('presision score', precision_score(y_train_5, y_train_pred))
 print('recall score', recall_score(y_train_5, y_train_pred))
-
+print('f1 score', f1_score(y_train_5, y_train_pred))
