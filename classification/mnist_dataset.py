@@ -1,5 +1,6 @@
 from sklearn.datasets import fetch_openml
 from sklearn.linear_model import SGDClassifier
+from sklearn.base import BaseEstimator
 from sklearn.model_selection import cross_val_score, cross_val_predict
 from sklearn.metrics import confusion_matrix, precision_score, recall_score
 import matplotlib as mpl
@@ -60,8 +61,19 @@ print(sgd_clf.predict([some_digit]))
 cross_acuuracy = cross_val_score(sgd_clf, X_train, y_train_5, cv=3, scoring='accuracy')
 print(cross_acuuracy)
 
-y_train_pred = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3)
 
+class Never5Classifier(BaseEstimator):
+    def fit(self, X, y=None):
+        pass
+
+    def predict(self, X):
+        return np.zeros((len(X), 1), dtype=bool)
+
+
+never_5_clf = Never5Classifier()
+print(cross_val_score(never_5_clf, X_train, y_train_5, cv=3, scoring='accuracy'))
+
+y_train_pred = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3)
 print(confusion_matrix(y_train_5, y_train_pred))
 
 print('presision score', precision_score(y_train_5, y_train_pred))
