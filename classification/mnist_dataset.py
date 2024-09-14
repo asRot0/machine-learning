@@ -2,7 +2,7 @@ from sklearn.datasets import fetch_openml
 from sklearn.linear_model import SGDClassifier
 from sklearn.base import BaseEstimator
 from sklearn.model_selection import cross_val_score, cross_val_predict
-from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, precision_recall_curve
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, precision_recall_curve, roc_curve
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
@@ -27,6 +27,11 @@ def pltDigit(index):
     plt.imshow(some_digit_image, cmap=mpl.colormaps['PuBu'], interpolation='nearest')
     plt.axis('off')
     plt.show()
+
+
+def plot_roc_curve(fpr, tpr, label=None):
+    plt.plot(fpr, tpr, linewidth=2, label=label)
+    plt.plot([0, 1], [0, 1], 'k--')
 
 
 def plot_precision_recall_vs_threshold(precisions, recalls, thresholds):
@@ -62,7 +67,7 @@ def plot_precision_recall_vs_threshold(precisions, recalls, thresholds):
     plt.ylabel('Precision/Recall')
     plt.legend(loc='best')
     plt.grid(True)
-    plt.savefig(os.path.join('../plotfig', 'mnist_precision_recall_vs_threshold.png'))
+    # plt.savefig(os.path.join('../plotfig', 'mnist_precision_recall_vs_threshold.png'))
 
 
 X_train, X_test, y_train, y_test = X[:60000], X[60000:], y[:60000], y[60000:]
@@ -127,4 +132,8 @@ y_scores = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3,
 
 precisions, recalls, thresholds = precision_recall_curve(y_train_5, y_scores)
 plot_precision_recall_vs_threshold(precisions, recalls, thresholds)
+plt.show()
+
+fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)
+plot_roc_curve(fpr, tpr)
 plt.show()
