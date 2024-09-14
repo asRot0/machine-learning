@@ -1,8 +1,10 @@
 from sklearn.datasets import fetch_openml
 from sklearn.linear_model import SGDClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.base import BaseEstimator
 from sklearn.model_selection import cross_val_score, cross_val_predict
-from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, precision_recall_curve, roc_curve
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, precision_recall_curve, \
+    roc_curve, roc_auc_score
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
@@ -72,6 +74,8 @@ def plot_precision_recall_vs_threshold(precisions, recalls, thresholds):
 
 X_train, X_test, y_train, y_test = X[:60000], X[60000:], y[:60000], y[60000:]
 
+# Training a Binary Classifier
+
 y_train_5 = y_train == 5
 y_test_5 = y_test == 5
 
@@ -120,7 +124,7 @@ print(cross_val_score(never_5_clf, X_train, y_train_5, cv=3,
 y_train_pred = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3)
 print(confusion_matrix(y_train_5, y_train_pred))
 
-print('presision score', precision_score(y_train_5, y_train_pred))
+print('precision score', precision_score(y_train_5, y_train_pred))
 print('recall score', recall_score(y_train_5, y_train_pred))
 print('f1 score', f1_score(y_train_5, y_train_pred))
 
@@ -134,6 +138,24 @@ precisions, recalls, thresholds = precision_recall_curve(y_train_5, y_scores)
 plot_precision_recall_vs_threshold(precisions, recalls, thresholds)
 plt.show()
 
+threshold_90_precision = thresholds[np.argmax(precisions >= 0.90)]
+print('threshold_90_precision', threshold_90_precision)
+
+y_train_pred_90 = (y_scores >= threshold_90_precision)
+print('precision score', precision_score(y_train_5, y_train_pred_90))
+print('recall score', recall_score(y_train_5, y_train_pred_90))
+
+print('roc_auc score(sgd_clf)', roc_auc_score(y_train_5, y_scores))
 fpr, tpr, thresholds = roc_curve(y_train_5, y_scores)
-plot_roc_curve(fpr, tpr)
+
+forest_clf = RandomForestClassifier(random_state=42)
+y_probas_forest = cross_val_predict(forest_clf, X_train, y_train_5, cv=3,
+                                    method='predict_proba')
+y_scores_forest = y_probas_forest[:, 1]  # proba of positive class
+
+fpr_forest, tpr_forest, thresholds_forest = roc_curve(y_train_5, y_scores_forest)
+plt.plot(fpr, tpr, 'b:', label='SGD')
+plot_roc_curve(fpr_forest, tpr_forest, 'Random Forest')
+plt.legend(loc='lower right')
 plt.show()
+print('roc_auc_score(forest_clf)', roc_auc_score(y_train_5, y_scores_forest))
