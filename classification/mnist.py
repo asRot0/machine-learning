@@ -29,7 +29,7 @@ sgd_clf = joblib.load(path)
 predict_label = sgd_clf.predict(X_train)
 print('error_', np.sqrt(mean_squared_error(y_train, predict_label)))
 print('error%_', np.mean(predict_label == y_train))
-print('error%new_', np.mean(sgd_clf.predict(X_test) == y_test))
+# print('error%new_', np.mean(sgd_clf.predict(X_test) == y_test))
 
 '''
 while True:
