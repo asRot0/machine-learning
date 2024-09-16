@@ -1,6 +1,6 @@
 from sklearn.datasets import fetch_openml
 from sklearn.linear_model import SGDClassifier
-from sklearn.neighbors import KNeighborsClassifier
+from sklearn.multiclass import OneVsOneClassifier, OneVsRestClassifier
 from sklearn.metrics import mean_squared_error
 import numpy as np
 import joblib
@@ -15,7 +15,7 @@ X, y = mnist['data'], mnist['target'].astype(np.uint8)
 print(y.head())
 
 X_train, X_test, y_train, y_test = X[:60000], X[60000:], y[:60000], y[60000:]
-some_digit = X.iloc[1]
+some_digit = X.iloc[0]
 
 '''
 sgd_clf = SGDClassifier(random_state=42)
@@ -38,3 +38,5 @@ while True:
     print('predict', sgd_clf.predict([X.iloc[i]]))
     print()
 '''
+score = sgd_clf.decision_function([some_digit])
+print(score)
