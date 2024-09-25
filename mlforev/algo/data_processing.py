@@ -10,6 +10,7 @@ from sklearn.preprocessing import StandardScaler
 from imblearn.over_sampling import RandomOverSampler
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 class DataProcessor:
@@ -20,6 +21,18 @@ class DataProcessor:
         self.data = pd.read_csv(data_path, names=columns)
         self.target_col = target_col
         self.data[target_col] = (self.data[target_col] == 'g').astype(int)  # Convert target to binary
+
+    def plot_data_distribution(self):
+        """
+        Plots the distribution of features for each class.
+        """
+        for label in self.data.columns[:-1]:
+            plt.hist(self.data[self.data[self.target_col] == 1][label], color='lime', label='gamma', alpha=0.7, density=True)
+            plt.hist(self.data[self.data[self.target_col] == 0][label], color='orange', label='hadron', alpha=0.7, density=True)
+            plt.title(label)
+            plt.xlabel(label)
+            plt.legend()
+            plt.show()
 
     def split_data(self):
         """
