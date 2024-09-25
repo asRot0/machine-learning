@@ -37,6 +37,7 @@ if __name__ == "__main__":
     columns = ["fLength", "fWidth", "fSize", "fConc", "fConc1", "fAsym", "fM3Long", "fM3Trans", "fAlpha", "fDist", "class"]
 
     processor = DataProcessor(data_path, columns, "class")
+    # processor.plot_data_distribution()
     train, valid, test = processor.split_data()
 
     # Scale and resample the datasets
