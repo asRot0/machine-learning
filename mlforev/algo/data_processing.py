@@ -22,6 +22,29 @@ class DataProcessor:
         self.target_col = target_col
         self.data[target_col] = (self.data[target_col] == 'g').astype(int)  # Convert target to binary
 
+    def dataset_overview(self):
+        """
+        Provide a quick overview of the dataset, including:
+        - First few rows
+        - General statistics (mean, std, etc.)
+        - Class distribution
+        """
+        # Display the first few rows
+        print("\nFirst few rows of the dataset:")
+        print(self.data.head())
+
+        # Display general statistics
+        print("\nDataset statistics:")
+        print(self.data.describe())
+
+        # Display the class distribution
+        print("\nClass distribution:")
+        print(self.data[self.target_col].value_counts())
+
+        # Check for missing values
+        print("\nMissing values in each column:")
+        print(self.data.isnull().sum())
+
     def plot_data_distribution(self):
         """
         Plots the distribution of features for each class.
