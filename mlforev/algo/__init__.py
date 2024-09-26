@@ -8,3 +8,4 @@ This __init__.py file allows the directory to be treated as a package. It import
 from .data_processing import DataProcessor
 from .knn_model import KNNModel
 from .naive_bayes_model import NaiveBayesModel
+from .logistic_regression_model import LogisticRegressionModel
