@@ -30,6 +30,7 @@ class NaiveBayesModel:
         y_pred = self.model.predict(X_test)
         return classification_report(y_test, y_pred)
 
+
 # Example usage
 if __name__ == "__main__":
     data_path = '../data/magic+gamma+telescope/magic04.data'
