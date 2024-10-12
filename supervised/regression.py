@@ -49,6 +49,7 @@ print('coef', lin_model.coef_)
 y_predict = lin_model.predict(x_new)
 print('y_predict', y_predict)
 
+# print('theta_best_svd', np.linalg.pinv(x_b).dot(y))
 theta_best_svd, residuals, rank, s = np.linalg.lstsq(x_b, y, rcond=1e-6)
 print('theta_best_svd', theta_best_svd)
 print('residuals', residuals)
