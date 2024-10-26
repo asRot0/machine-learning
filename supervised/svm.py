@@ -19,7 +19,7 @@ print(y[:5], 'y[:5]')
 
 svm_clf = Pipeline([
     ('scaler', StandardScaler()),
-    ('linear_svc', LinearSVC())
+    ('linear_svc', LinearSVC(C=1, loss='hinge'))
 ])
 
 svm_clf.fit(X, y)
