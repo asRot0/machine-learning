@@ -43,11 +43,19 @@ polynomial_svm_clf = Pipeline([
     ('svm_clf', LinearSVC(C=10, loss='hinge'))
 ])
 
+# Polynomial Kernel
 poly_kernel_svm_clf = Pipeline([
     ('scaler', StandardScaler()),
     ('svm_clf', SVC(kernel='poly', degree=3, coef0=1, C=5))
 ])
 
+# Gaussian RBF Kernel
+rbf_kernel_svm_clf = Pipeline([
+    ("scaler", StandardScaler()),
+    ("svm_clf", SVC(kernel="rbf", gamma=5, C=0.001))
+ ])
+
 # polynomial_svm_clf.fit(X_moon, y_moon)
 poly_kernel_svm_clf.fit(X_moon, y_moon)
+# rbf_kernel_svm_clf.fit(X, y)
 print(X_moon[:5])
