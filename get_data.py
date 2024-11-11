@@ -20,5 +20,5 @@ print(housing.describe())
 housing.hist(bins=50, figsize=(10, 8))
 
 # plt.pause(interval=2)
-# plt.savefig(os.path.join(savefig, 'fig1.png'))
+# plt.savefig(os.path.join(savefig, 'housing_data.png'))
 plt.show()
