@@ -1,4 +1,13 @@
 # Deep Learning
+````
+♥.•´¸.•´✶´♡ ¸.•´´♡💚˚*
+_○💙_Good morning 💙˚*
+💚.•´¸.•´✶´♡ ¸.•´´♡⛅
+° ☆ ° ˛˛☆Π__˚☆*
+*˚ ˛★˛•˚ */__/ ~＼。˚ ˚
+˚ ˛•˛•˚🌈｜ 田田 ｜門｜ ˚
+🌴╬═🌴╬╬🌴╬╬🌴═╬╬═🌴╬╬🌴
+````
 
 **Introduction to Deep Learning**
 * Neural Networks Basics
