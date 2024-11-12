@@ -13,6 +13,12 @@
 
 
 ```
+Gòód ,\ ! /, 
+Mrng - O - 
+.-^-..-^-._ .-^-.
+---------------------
+GòóD Mórning
+            
 mnist-classification/
 │
 ├── data/                       # For datasets and raw data
