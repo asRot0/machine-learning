@@ -1,8 +1,23 @@
-# Deep Learning Roadmap
+```markdown
+# 🌌 Deep Learning Roadmap 🌌
+```
+
 
 A comprehensive guide to the fundamental and advanced concepts in deep learning. This roadmap provides a step-by-step learning path, from basic neural network principles to state-of-the-art topics, techniques, and applications.
 
-## 1. Fundamentals of Deep Learning
+```
+                    ╔══════════════════════════════════╗
+                    ║   Deep Learning Essentials 🌐    ║
+                    ╚══════════════════════════════════╝
+```
+
+---
+## 📚 1. Fundamentals of Deep Learning
+```
+        ╔════════════════════╗
+        ║  Neural Networks   ║
+        ╚════════════════════╝
+```
 - **Introduction to Neural Networks**
   - Basics of neurons, perceptrons, and neural network architecture.
 - **Activation Functions**
