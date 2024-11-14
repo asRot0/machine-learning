@@ -3,31 +3,32 @@
 A comprehensive guide to the fundamental and advanced concepts in deep learning. This roadmap provides a step-by-step learning path, from basic neural network principles to state-of-the-art topics, techniques, and applications.
 
 ```
-🌌 ★ ° . *　　　°　.   　°☆ 　. * ● ¸   ★ ° . *　　　°　.　°☆ 🌌
-. 　　　★ 　° :. ★　 *   ○    ° ★　 　 * 🌌　       ° :. 　 *        • ○ ° ★ 
-.　 * 　.　 　　　　　. 　 ° 　. ● .           ★ ° . *　　　°　.　°☆ 
-    　. * ● ¸   . 　　　★ 　° :●. 　 * 🌌 • ○ ° ★　
-
+🌌 ★ ° . *　　　°　.   　°☆ 　. *          ● ¸   ★ °     . *　　　°　.　°☆ 🌌
+. 　　　★ 　° :. ★　 *           ○    ° ★　 　 🌈* 🌌　       ° :. 　        *        • ○  ° ★ 
+.　 * 　.　 　　　　　. 　 ° 　.      ● .                    . *　　　°　.　°☆ 
+    　. * ● ¸   . 　        . 　 * 🌌 •           ○ ° ★　          
+                                                                      ★ ° 
    ∧＿∧                              . 　 *  • ○ °
-  (｡･ω･｡)つ━☆・*。✨            .　°☆                     　. *
-⊂/　   /　   ・゜💫                           ✨ .   ° 　・🌌
+  (｡･ω･｡)つ━☆・*。✨            .　°☆              ✨       　. *
+⊂/　   /　   ・゜💫                           ✨ .   ° 　・🌌                           ★  🌟
  しーＪ　　　    °。+ * 。　                 
-　　　　　             .・゜💖
+　　　　　             .・゜💖                                            ○ ° ★　
 　　　　　             ゜｡ﾟﾟ･｡･ﾟﾟ。🌈
-　　　　                　ﾟ。　　｡ﾟ
+　　　　                　ﾟ。　　｡ﾟ                   ○ ° ★* ● ¸                                            :.☆
                           ﾟ･｡･ﾟ🌟 
            ✨🌐 ✦═════════════════════════════ ══ ═ 🌐✨
-            🌈     ░ Deep Learning Essentials ░   🌈
-          ✨🌐 ═══════════════════════════════ 🌐✨  ∧,,,∧
+            🌈     ░ Deep Learning Essentials ░   🌈                          ★ 　° :●
+          ✨🌐 ═══════════════════════════════ 🌐✨  ∧,,,∧                                  ¸. ● .
                                                      ( ̳• · •̳) 💖 
-                                                     /    づ♡ I love you 🌈 
+                                                     /    づ♡ I love you 🌈                               :. ★ 🌌
 
 ° 　. ● . ★ ° . *　　　°　.　°☆ 　  . * 　.　 　　　　　. 　★　　　　. 　
-　★　　　　. 　 ° 　.  . 　 ° 🌌 　 ° . 　 ° ☆　¸. ● . 　　★　  ★
-° . *　　　°　.　°☆ 　. * ● ¸  ★ ° . *　　　°　.　°☆ 　 ★ ° 　・🌌
+　★　　　　. 　 ° 　.  .           　 ° 🌌 　 ° . 　 ° ☆　          　　★　  ★                💖 . *　　
+° . *　　　°　.　°☆          　. * ● ¸  ★ °       　°　.　°☆ 　                                             
+                                                                 ★ ° 　・🌌
 
-° . *　　　°　.　°☆ 　. * ● ¸ 　 . 　　　★ 　° :. ★ 🌌 • ○ ° ★　 　
-✦ . * 　 　 ．　　　★ ° 　.　°☆ 　. * ● 　¸
+° . *　　　°　.　°☆ 　. * ● ¸ 　 . 　　　★ 　°                        • ○ ° ★　 　
+✦ . * 　 　 ．　　　  💫 ★ °     　.　         °   ☆ 　. * ● 　¸
  ✨ . 　 　　. 　•　 *      . 　 　🌌 ○     °
 
 ```
@@ -43,9 +44,9 @@ A comprehensive guide to the fundamental and advanced concepts in deep learning.
 　★　　　　. 　 ° 　.  . 　    ★　 　　
 ° °☆ 　¸. ● . 　　★　★ 
 ° . *　　　°　.　°☆ 　. * ● ¸ . 
-★ ° . *　　　°　.　°☆ 　. * ● ¸ 
-. 　　　★ 　° :. 　 * • ○ ° ★　 
-.　 * 　.　 　★     ° :.☆
+★ ° . *　　　°　.　°☆ ○ ° ★　 
+.　 * 　.　 　★     ° :.☆　. * ● ¸ 
+. 　　　★ 　° :. 　 * • 
 ---
 
 ## 📚 **1. Fundamentals of Deep Learning**
