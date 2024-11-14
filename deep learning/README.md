@@ -10,13 +10,13 @@ A comprehensive guide to the fundamental and advanced concepts in deep learning.
 
 ---
 ## 📚 1. Fundamentals of Deep Learning
-- **Introduction to Neural Networks**
+- 🔸 **Introduction to Neural Networks**
   - Basics of neurons, perceptrons, and neural network architecture.
-- **Activation Functions**
+- 🔸 **Activation Functions**
   - Common functions: Sigmoid, ReLU, Tanh, Softmax, etc.
-- **Loss Functions**
+- 🔸 **Loss Functions**
   - Examples: Mean Squared Error (MSE), Cross-Entropy, custom loss functions.
-- **Backpropagation & Gradient Descent**
+- 🔸 **Backpropagation & Gradient Descent**
   - Concept of error minimization and weight adjustment.
 
 ## 🏗️ 2. Architectures of Neural Networks
