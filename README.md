@@ -144,11 +144,11 @@ Clustering algorithms like k-Means and DBSCAN are used in unsupervised learning 
 
 🎉📚 **My AI/ML Knowledge Stack: Books I’ve Conquered!** 🚀🤖  
 
-| 📘 **Book Title**                                             | ✍️ **Author**                     | 🎯 **Key Takeaway**                                              | 📥 **More Info**                    |
-|---------------------------------------------------------------|-----------------------------------|------------------------------------------------------------------|-----------------------------------------------|
-| **Introduction to Machine Learning with Python: A Guide for Data Scientists** | Andreas C. Müller & Sarah Guido  | *Perfect for data science beginners! Learn ML concepts and practical applications with Python.* | [🔗 Learn More](https://amzn.to/3pQLbxN)      |
-| **Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow**         | Aurélien Géron                   | *Practical guide with hands-on ML tools and TensorFlow.*          | [🔗 Learn More](https://amzn.to/3rqYrXI)      |
-| **Deep Learning with Python**                                 | François Chollet                 | *Comprehensive overview of deep learning with Keras.*            | [🔗 Learn More](https://amzn.to/3s5kltH)      |
-| **Generative Deep Learning**                                  | David Foster                    | *Explores how to teach machines creativity like humans.*          | [🔗 Learn More](https://amzn.to/3zC7FWG)      |
+| 📘 **Book Title**                                             | ✍️ **Author**                     | 🎯 **Key Takeaway**                                              | 🖼️ **Cover**                          |
+|---------------------------------------------------------------|-----------------------------------|------------------------------------------------------------------|----------------------------------------|
+| **Introduction to Machine Learning with Python: A Guide for Data Scientists** | Andreas C. Müller & Sarah Guido  | *Perfect for data science beginners! Learn ML concepts and practical applications with Python.* | ![Cover](https://m.media-amazon.com/images/I/71sy91D+6JL._AC_UY327_FMwebp_QL65_.jpg) |
+| **Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow**         | Aurélien Géron                   | *Practical guide with hands-on ML tools and TensorFlow.*          | ![Cover](https://m.media-amazon.com/images/I/81oEy81y6-L._AC_UY327_FMwebp_QL65_.jpg) |
+| **Deep Learning with Python**                                 | François Chollet                 | *Comprehensive overview of deep learning with Keras.*            | ![Cover](https://m.media-amazon.com/images/I/71cLPt8xKYL._AC_UY327_FMwebp_QL65_.jpg) |
+| **Generative Deep Learning**                                  | David Foster                    | *Explores how to teach machines creativity like humans.*          | ![Cover](https://m.media-amazon.com/images/I/91piYJ1HIZL._AC_UY327_FMwebp_QL65_.jpg) |
 
 ---
