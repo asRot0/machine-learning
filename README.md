@@ -140,6 +140,15 @@ Clustering algorithms like k-Means and DBSCAN are used in unsupervised learning 
 2. **[Kaggle Datasets](https://www.kaggle.com/datasets):** A vast collection of datasets shared by the Kaggle community.
 3. **[Google Dataset Search](https://datasetsearch.research.google.com/):** A search engine for datasets.
 
+---
+
+🎉📚 **My AI/ML Knowledge Stack: Books I’ve Conquered!** 🚀🤖  
+
+| 📘 **Book Title**                                     | ✍️ **Author**                     | 🎯 **Key Takeaway**                                        | 📥 **More Info / Buy Link**                    |
+|-------------------------------------------------------|-----------------------------------|-----------------------------------------------------------|-----------------------------------------------|
+| **Introduction to Machine Learning with Python**      | Andreas C. Müller & Sarah Guido  | *Great beginner-friendly intro to ML with Python!*         | [🔗 Learn More](https://amzn.to/3pQLbxN)      |
+| **Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow** | Aurélien Géron                
+
 ````
  ⛅˚* ♥.•´¸.☆•´✶´♡ ¸.•´´♡💚˚* ✶ ♥.•´¸.•´✶´♡ ¸.•´´♡💚˚* ✶ ♥.•´¸.•´✶´♡ ¸.•´´♡💚˚* ✶ ~＼。˚¸.˚
   _○💙_  ★˛•˚☆ °•˚🌈 .•´✶´♡ 💙˚* ＼_○💙_Good morning 💙˚*  ° ☆ °  💚˚*✶´♡ 💙_○  °☆ °  ⛅˚*
@@ -151,9 +160,3 @@ Clustering algorithms like k-Means and DBSCAN are used in unsupervised learning 
 ````
 
 ---
-
-| 📘 **Book Title**                     | 🌟 **Level**     | 📥 **Download Link**                     |
-|---------------------------------------|------------------|------------------------------------------|
-| Hands-On Machine Learning             | Beginner         | [Download](https://example.com/hands-on-ml-book)   |
-| Pattern Recognition and Machine Learning | Advanced       | [Download](https://example.com/pattern-recognition-book) |
-| Deep Learning                         | Expert           | [Download](https://example.com/deep-learning-book)        |
