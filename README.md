@@ -144,19 +144,11 @@ Clustering algorithms like k-Means and DBSCAN are used in unsupervised learning 
 
 🎉📚 **My AI/ML Knowledge Stack: Books I’ve Conquered!** 🚀🤖  
 
-| 📘 **Book Title**                                     | ✍️ **Author**                     | 🎯 **Key Takeaway**                                        | 📥 **More Info / Buy Link**                    |
-|-------------------------------------------------------|-----------------------------------|-----------------------------------------------------------|-----------------------------------------------|
-| **Introduction to Machine Learning with Python**      | Andreas C. Müller & Sarah Guido  | *Great beginner-friendly intro to ML with Python!*         | [🔗 Learn More](https://amzn.to/3pQLbxN)      |
-| **Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow** | Aurélien Géron                
-
-````
- ⛅˚* ♥.•´¸.☆•´✶´♡ ¸.•´´♡💚˚* ✶ ♥.•´¸.•´✶´♡ ¸.•´´♡💚˚* ✶ ♥.•´¸.•´✶´♡ ¸.•´´♡💚˚* ✶ ~＼。˚¸.˚
-  _○💙_  ★˛•˚☆ °•˚🌈 .•´✶´♡ 💙˚* ＼_○💙_Good morning 💙˚*  ° ☆ °  💚˚*✶´♡ 💙_○  °☆ °  ⛅˚*
-💚.•´¸.• ´✶´♡ ¸.•´´♡⛅  💙.•´¸.•´✶´♡ 💚˚*   💚.•´¸  .•´✶´♡ ¸.•´´♡💙˚*   💚.•´¸.•´✶ ´♡¸.•´´
-  °☆ ° ˛˛☆Π__˚☆*  ° ☆ ° ˛☆Π__˚☆*   ° ☆ ° ˛☆Π__˚☆*   ° ☆ ° ˛☆Π__˚☆* ˚˛ ★˛•˚ ˚ ✶´♡•´✶´♡
- *˚ ˛★˛•˚  */__/ ~＼。˚˚  ˛★˛•˚*/__/~＼。˚ ˚ ˛★˛• ˚*/__/ ˛☆ ~＼。˚˚ ˛★˛•˚ ´♡⛅ •˚🌈 ✶ ♥.• ˛☆
-˚ ˛•˛ •˚🌈｜ 田田 ｜門｜˚ •´✶´♡ ˚ ˛•˛•˚🌈｜ 田田 •´✶´♡｜門｜ ˚ ˛•˛•˚🌈｜ 田田 ｜門｜ ˚ ˛•˛•˚🌈
-🌴╬═🌴╬╬🌴╬╬🌴═╬╬═🌴╬╬🌴╬═🌴╬╬🌴╬═🌴╬╬🌴═╬╬═🌴 ╬🌴═╬╬═🌴╬╬🌴 ╬═🌴╬╬🌴═╬╬═🌴╬═🌴╬╬🌴╬═🌴╬
-````
+| 📘 **Book Title**                                             | ✍️ **Author**                     | 🎯 **Key Takeaway**                                              | 📥 **More Info**                    |
+|---------------------------------------------------------------|-----------------------------------|------------------------------------------------------------------|-----------------------------------------------|
+| **Introduction to Machine Learning with Python: A Guide for Data Scientists** | Andreas C. Müller & Sarah Guido  | *Perfect for data science beginners! Learn ML concepts and practical applications with Python.* | [🔗 Learn More](https://amzn.to/3pQLbxN)      |
+| **Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow**         | Aurélien Géron                   | *Practical guide with hands-on ML tools and TensorFlow.*          | [🔗 Learn More](https://amzn.to/3rqYrXI)      |
+| **Deep Learning with Python**                                 | François Chollet                 | *Comprehensive overview of deep learning with Keras.*            | [🔗 Learn More](https://amzn.to/3s5kltH)      |
+| **Generative Deep Learning**                                  | David Foster                    | *Explores how to teach machines creativity like humans.*          | [🔗 Learn More](https://amzn.to/3zC7FWG)      |
 
 ---
