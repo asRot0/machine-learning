@@ -151,3 +151,9 @@ Clustering algorithms like k-Means and DBSCAN are used in unsupervised learning 
 ````
 
 ---
+
+| 📘 **Book Title**                     | 🌟 **Level**     | 📥 **Download Link**                     |
+|---------------------------------------|------------------|------------------------------------------|
+| Hands-On Machine Learning             | Beginner         | [Download](https://example.com/hands-on-ml-book)   |
+| Pattern Recognition and Machine Learning | Advanced       | [Download](https://example.com/pattern-recognition-book) |
+| Deep Learning                         | Expert           | [Download](https://example.com/deep-learning-book)        |
