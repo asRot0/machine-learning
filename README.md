@@ -141,14 +141,3 @@ Clustering algorithms like k-Means and DBSCAN are used in unsupervised learning 
 3. **[Google Dataset Search](https://datasetsearch.research.google.com/):** A search engine for datasets.
 
 ---
-
-🎉📚 **My AI/ML Knowledge Stack: Books I’ve Conquered!** 🚀🤖  
-
-| 📘 **Book Title**                                             | ✍️ **Author**                     | 🎯 **Key Takeaway**                                              | 🖼️ **Cover**                          |
-|---------------------------------------------------------------|-----------------------------------|------------------------------------------------------------------|----------------------------------------|
-| **Introduction to Machine Learning with Python: A Guide for Data Scientists** | Andreas C. Müller & Sarah Guido  | *Perfect for data science beginners! Learn ML concepts and practical applications with Python.* | <img src="https://books.google.com.bd/books/publisher/content?id=vbQlDQAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72kxxNT8M2ikbsJDLg-ChgYlsyYIs6bsIYdM7WtIukEDhgxzFE_Y0Yksov31aqhq77r6Wgn1f7pJToAeg1_CZo9kBGFSNJMgtquNR-ik7Ut6akI-dP7DORSdmCphjfUiE0pG2Mx" height="70"> |
-| **Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow**         | Aurélien Géron                   | *Practical guide with hands-on ML tools and TensorFlow.*          | <img src="https://learning.oreilly.com/library/cover/9781098125967/250w/" height="70"> |
-| **Deep Learning with Python**                                 | François Chollet                 | *Comprehensive overview of deep learning with Keras.*            | <img src="https://learning.oreilly.com/library/cover/9781617294433/250w/" height="70"> |
-| **Generative Deep Learning**                                  | David Foster                    | *Explores how to teach machines creativity like humans.*          | <img src="https://learning.oreilly.com/library/cover/9781492041931/250w/" height="70"> |
-
----
