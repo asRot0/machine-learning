@@ -30,6 +30,7 @@ def build_model(n_hidden=1, n_neurons=30, learning_rate=3e-3, input_shape=(8,)):
     Returns:
     - A compiled Keras Sequential model with specified architecture and parameters.
     '''
+
     model = keras.models.Sequential()
     options = {'input_shape': input_shape}
 
