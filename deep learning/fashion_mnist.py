@@ -9,13 +9,29 @@ fashion_mnist = keras.datasets.fashion_mnist
 
 print(X_train_full.shape, X_train_full.dtype)
 
-X_valid, X_train = X_train_full[:5000] / 255.0, X_train_full[5000:] / 255.0
-y_valid, y_train = y_train_full[:5000], y_train_full[5000:]
+X_train, y_train = X_train_full[:-5000], y_train_full[:-5000]
+X_valid, y_valid = X_train_full[-5000:], y_train_full[-5000:]
+print(X_train.shape, X_train.dtype)
+
+X_train, X_valid, X_test = X_train / 255.0, X_valid / 255., X_test / 255.0
 
 class_names = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat",
                "Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot"]
 print(class_names[y_train[0]])
 
+n_rows, n_cols = 4, 10
+plt.figure(figsize=(n_cols * 1.2, n_rows * 1.2))
+for row in range(n_rows):
+    for col in range(n_cols):
+        index = n_cols * row + col
+        plt.subplot(n_rows, n_cols, index+1)
+        plt.imshow(X_train[index], cmap='binary', interpolation='nearest')
+        plt.axis('off')
+        plt.title(class_names[y_train[index]])
+plt.subplots_adjust(wspace=0.2, hspace=0.5)
+plt.show()
+
+tf.random.set_seed(42)
 model = keras.models.Sequential([
     keras.layers.Flatten(input_shape=[28, 28]),
     keras.layers.Dense(300, activation='relu'),
