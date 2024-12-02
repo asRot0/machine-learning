@@ -9,7 +9,7 @@ Original file is located at
 **Fine-Tuning Neural Network Hyperparameters**
 """
 
-pip install -q -U keras_tuner~=1.4.6
+# pip install -q -U keras_tuner~=1.4.6
 
 import tensorflow as tf
 import keras_tuner as kt
