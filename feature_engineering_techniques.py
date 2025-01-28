@@ -33,9 +33,12 @@ y = df["Purchased"]
 # ==========================
 
 # Strategy 1: Simple Imputation (mean, median, most_frequent)
+
+# Select numerical columns (Age and Salary)
+numerical_columns = ["Age", "Salary"]
+
 simple_imputer = SimpleImputer(strategy="mean")
-X["Age"] = simple_imputer.fit_transform(X[["Age"]])
-X["Salary"] = simple_imputer.transform(X[["Salary"]])
+X[numerical_columns] = simple_imputer.fit_transform(X[numerical_columns])
 
 print("\nAfter Simple Imputation:\n", X)
 
@@ -50,7 +53,7 @@ print("\nKNN Imputation:\n", X_knn_df)
 # ============================
 
 # One-Hot Encoding
-ohe = OneHotEncoder(sparse=False)
+ohe = OneHotEncoder(sparse_output=False)
 gender_encoded = ohe.fit_transform(X[["Gender"]])
 gender_encoded_df = pd.DataFrame(gender_encoded, columns=ohe.get_feature_names_out(["Gender"]))
 
