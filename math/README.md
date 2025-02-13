@@ -11,7 +11,6 @@ $$
 \LARGE \theta_{t+1} = \theta_t - \eta \nabla J(\theta_t)
 $$
 
-### **Variable Descriptions:**
 - **\( \theta_t \)** → Model parameters at step \( t \).  
 - **\( \eta \) (eta)** → Learning rate, controlling step size.  
 - **\( \nabla J(\theta_t) \)** → Gradient of the cost function.  
@@ -31,7 +30,6 @@ $$
 \LARGE \text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{n} e^{z_j}}
 $$
 
-### **Variable Descriptions:**
 - **\( z_i \)** → Raw model output (logits).  
 - **\( e^{z_i} \)** → Exponential transformation ensuring positive values.  
 - **\( \sum e^{z_j} \)** → Normalization factor ensuring probabilities sum to 1.  
@@ -51,7 +49,6 @@ $$
 \LARGE \mathcal{L} = -\sum_{i=1}^{n} y_i \log(\hat{y_i})
 $$
 
-### **Variable Descriptions:**
 - **\( y_i \)** → True class label (ground truth).  
 - **\( \hat{y_i} \)** → Predicted probability for class \( i \).  
 
@@ -70,7 +67,6 @@ $$
 \LARGE \theta_{t+1} = \theta_t - \frac{\eta}{\sqrt{v_t} + \epsilon} m_t
 $$
 
-### **Variable Descriptions:**
 - **\( \theta_t \)** → Model parameters at step \( t \).  
 - **\( m_t \)** → First moment estimate (mean of gradients).  
 - **\( v_t \)** → Second moment estimate (variance of gradients).  
@@ -92,7 +88,6 @@ $$
 \LARGE O(i, j) = \sum_m \sum_n I(i+m, j+n) \cdot K(m, n)
 $$
 
-### **Variable Descriptions:**
 - **\( O(i, j) \)** → Output feature map at position \( i, j \).  
 - **\( I(i+m, j+n) \)** → Input image pixel values affected by the filter.  
 - **\( K(m, n) \)** → Kernel (filter) values.  
@@ -112,7 +107,6 @@ $$
 \LARGE \text{Attention}(Q, K, V) = \text{softmax} \left( \frac{QK^T}{\sqrt{d_k}} \right) V
 $$
 
-### **Variable Descriptions:**
 - **\( Q, K, V \)** → Query, Key, and Value matrices.  
 - **\( d_k \)** → Dimensionality of key vectors (scaling factor).  
 - **\( QK^T \)** → Dot product of queries and keys to compute attention scores.  
