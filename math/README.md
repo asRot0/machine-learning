@@ -16,6 +16,10 @@ $$
 - $`\eta`$ → Learning rate, controlling step size.  
 - $`\nabla J(\theta_t)`$ → Gradient of the cost function $J(\theta)$ with respect to $\theta\$ at time step $t$.  
 
+\textcolor{red}{$\nabla J(\theta_t)$}
+<span style="color: red;">$\nabla J(\theta_t)$</span>
+
+
 📌 **Why It Matters?**
 - Adjusts weights in ML/DL models to **minimize the loss function**.  
 - The backbone of training algorithms in **neural networks, linear regression, etc.**  
