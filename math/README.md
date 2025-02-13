@@ -16,6 +16,27 @@ $$
 - **\( \nabla J(\theta_t) \)** → Gradient of the cost function.  
 
 ---
+```latex
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+The formula for the gradient descent update rule is:
+
+\[
+\theta_{t+1} = \theta_t - \eta \nabla J(\theta_t)
+\]
+
+Where:
+
+- \(\theta_t\) → Model parameters at step \(t\).
+- \(\eta\) (eta) → Learning rate, controlling step size.
+- \(\nabla J(\theta_t)\) → Gradient of the cost function \(J(\theta)\) with respect to \(\theta\) at time step \(t\).
+
+\end{document}
+
+```
 \documentclass{article}
 \usepackage{amsmath}
 
