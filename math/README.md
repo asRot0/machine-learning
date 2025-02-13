@@ -12,10 +12,8 @@ $$
 $$
 
 - **\( \theta_t \)** → Model parameters at step \( t \).  
-- **\( \eta \) (eta)** → Learning rate, controlling step size.  
-$`\nabla J(\theta_t)`$ → Gradient of the cost function.  
-- $\sqrt{3x-1}+(1+x)^2$
-
+- $`**\( \eta \) (eta)**`$ → Learning rate, controlling step size.  
+- $`\nabla J(\theta_t)`$ → Gradient of the cost function.  
 
 📌 **Why It Matters?**
 - Adjusts weights in ML/DL models to **minimize the loss function**.  
