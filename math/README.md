@@ -11,8 +11,8 @@ $$
 \LARGE \theta_{t+1} = \theta_t - \eta \nabla J(\theta_t)
 $$
 
-- **\( \theta_t \)** → Model parameters at step \( t \).  
-- $`**\( \eta \) (eta)**`$ → Learning rate, controlling step size.  
+- $\theta_t$ → Model parameters at step \( t \).  
+- **$`\eta`$** → Learning rate, controlling step size.  
 - $`\nabla J(\theta_t)`$ → Gradient of the cost function.  
 
 📌 **Why It Matters?**
