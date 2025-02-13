@@ -11,8 +11,8 @@ $$
 \LARGE \theta_{t+1} = \theta_t - \eta \nabla J(\theta_t)
 $$
 
-- $\theta_t$ → Model parameters at step \( t \).  
-- **$`\eta`$** → Learning rate, controlling step size.  
+- $`\theta_t`$ → Model parameters at step \( t \).  
+- $`\eta`$ → Learning rate, controlling step size.  
 - $`\nabla J(\theta_t)`$ → Gradient of the cost function.  
 
 📌 **Why It Matters?**
@@ -30,9 +30,9 @@ $$
 \LARGE \text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{n} e^{z_j}}
 $$
 
-- **\( z_i \)** → Raw model output (logits).  
-- **\( e^{z_i} \)** → Exponential transformation ensuring positive values.  
-- **\( \sum e^{z_j} \)** → Normalization factor ensuring probabilities sum to 1.  
+- $`z_i`$ → Raw model output (logits).  
+- $`e^{z_i}`$ → Exponential transformation ensuring positive values.  
+- $`\sum e^{z_j}`$ → Normalization factor ensuring probabilities sum to 1.  
 
 📌 **Why It Matters?**
 - Converts raw model outputs into **probabilities**.  
