@@ -12,9 +12,9 @@ $$
 $$
 
 - $`\theta_{t+1}`$ → Updated parameter.
-- $`\theta_t`$ → Model parameters at step \( t \).  
+- $`\theta_t`$ → Model parameters at step $t$.  
 - $`\eta`$ → Learning rate, controlling step size.  
-- $`\nabla J(\theta_t)`$ → Gradient of the cost function $J(\theta)$ with respect to $\theta\$ at time step $\t$.  
+- $`\nabla J(\theta_t)`$ → Gradient of the cost function $`J(\theta)`$ with respect to $\theta\$ at time step $t$.  
 
 📌 **Why It Matters?**
 - Adjusts weights in ML/DL models to **minimize the loss function**.  
