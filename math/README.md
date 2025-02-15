@@ -51,7 +51,7 @@ $$
 $$
 
 - $`y_i`$ → True class label (ground truth).  
-- $`hat{y_i}`$ → Predicted probability for class $i$.  
+- $`\hat{y_i}`$ → Predicted probability for class $i$.  
 
 📌 **Why It Matters?**
 - Measures how well predicted probabilities match true labels.  
@@ -68,11 +68,11 @@ $$
 \LARGE \theta_{t+1} = \theta_t - \frac{\eta}{\sqrt{v_t} + \epsilon} m_t
 $$
 
-- **\( \theta_t \)** → Model parameters at step \( t \).  
-- **\( m_t \)** → First moment estimate (mean of gradients).  
-- **\( v_t \)** → Second moment estimate (variance of gradients).  
-- **\( \eta \)** → Learning rate.  
-- **\( \epsilon \)** → Small constant to avoid division by zero.  
+- $`\theta_t`$ → Model parameters at step $t$.  
+- $`m_t`$ → First moment estimate (mean of gradients).  
+- $`v_t`$ → Second moment estimate (variance of gradients).  
+- $`\eta`$ → Learning rate.  
+- $`\epsilon`$ → Small constant to avoid division by zero.  
 
 📌 **Why It Matters?**
 - Adaptive learning rate method, used in **CNNs, RNNs, Transformers**.  
