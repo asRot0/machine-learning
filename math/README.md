@@ -89,9 +89,9 @@ $$
 \LARGE O(i, j) = \sum_m \sum_n I(i+m, j+n) \cdot K(m, n)
 $$
 
-- **\( O(i, j) \)** → Output feature map at position \( i, j \).  
-- **\( I(i+m, j+n) \)** → Input image pixel values affected by the filter.  
-- **\( K(m, n) \)** → Kernel (filter) values.  
+- $`O(i, j)`$ → Output feature map at position $i, j$.  
+- $`I(i+m, j+n)`$ → Input image pixel values affected by the filter.  
+- $`K(m, n)`$ → Kernel (filter) values.  
 
 📌 **Why It Matters?**
 - Core operation in **image processing & CNNs**.  
@@ -108,10 +108,10 @@ $$
 \LARGE \text{Attention}(Q, K, V) = \text{softmax} \left( \frac{QK^T}{\sqrt{d_k}} \right) V
 $$
 
-- **\( Q, K, V \)** → Query, Key, and Value matrices.  
-- **\( d_k \)** → Dimensionality of key vectors (scaling factor).  
-- **\( QK^T \)** → Dot product of queries and keys to compute attention scores.  
-- **\( \text{softmax} \)** → Normalization to ensure values sum to 1.  
+- $`Q, K, V`$ → Query, Key, and Value matrices.  
+- $`d_k`$ → Dimensionality of key vectors (scaling factor).  
+- $`QK^T`$ → Dot product of queries and keys to compute attention scores.  
+- $`\text{softmax}`$ → Normalization to ensure values sum to 1.  
 
 📌 **Why It Matters?**
 - Used in **transformers (GPT, BERT, T5)** for NLP.  
