@@ -14,7 +14,7 @@ $$
 - $`\theta_{t+1}`$ → Updated parameter.
 - $`\theta_t`$ → Model parameters at step $t$.  
 - $`\eta`$ → Learning rate, controlling step size.  
-- $`\nabla J(\theta_t)`$ → Gradient of the cost function $J(\theta)$ with respect to $\theta\$ at time step $t$.  
+- $`\nabla J(\theta_t)`$ → Gradient of the cost function $J(\theta)$ with respect to $\theta$ at time step $t$.  
 
 📌 **Why It Matters?**
 - Adjusts weights in ML/DL models to **minimize the loss function**.  
@@ -50,8 +50,8 @@ $$
 \LARGE \mathcal{L} = -\sum_{i=1}^{n} y_i \log(\hat{y_i})
 $$
 
-- **\( y_i \)** → True class label (ground truth).  
-- **\( \hat{y_i} \)** → Predicted probability for class \( i \).  
+- $`y_i`$ → True class label (ground truth).  
+- $`hat{y_i}`$ → Predicted probability for class $i$.  
 
 📌 **Why It Matters?**
 - Measures how well predicted probabilities match true labels.  
