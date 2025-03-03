@@ -114,6 +114,42 @@ Clustering algorithms like k-Means and DBSCAN are used in unsupervised learning 
 
 ---
 
+---
+
+### 📚 AI/ML Bookshelf: My Learning Collection
+
+A curated selection of books that are shaping my understanding of **Machine Learning & Artificial Intelligence**. These books provide insights into foundational concepts, deep learning, and generative AI.
+
+
+<table>
+  <tr>
+    <td><img src="https://learning.oreilly.com/library/cover/9781098125967/" width="120"></td>
+    <td>
+      <strong>Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow</strong><br>
+      <em>Author: Aurélien Géron</em><br>
+      <a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/">Read More</a>
+    </td>
+  </tr>
+  <tr>
+    <td><img src="https://learning.oreilly.com/library/cover/9781617294433/" width="120"></td>
+    <td>
+      <strong>Deep Learning with Python</strong><br>
+      <em>Author: François Chollet</em><br>
+      <a href="https://www.oreilly.com/library/view/deep-learning-with/9781617294433/">Read More</a>
+    </td>
+  </tr>
+  <tr>
+    <td><img src="https://learning.oreilly.com/library/cover/9781492041931/" width="120"></td>
+    <td>
+      <strong>Generative Deep Learning</strong><br>
+      <em>Author: David Foster</em><br>
+      <a href="https://www.oreilly.com/library/view/generative-deep-learning/9781492041931/">Read More</a>
+    </td>
+  </tr>
+</table>
+
+---
+
 ## Resources 🌐
 
 ### Books 📚
@@ -141,3 +177,56 @@ Clustering algorithms like k-Means and DBSCAN are used in unsupervised learning 
 3. **[Google Dataset Search](https://datasetsearch.research.google.com/):** A search engine for datasets.
 
 ---
+
+---
+
+# 📚 AI/ML Bookshelf: My Learning Collection
+
+A curated selection of books that are shaping my understanding of **Machine Learning & Artificial Intelligence**. These books provide insights into foundational concepts, deep learning, and generative AI.
+
+---
+
+## 📖 Featured Reads  
+
+---
+
+# 📚 AI/ML Bookshelf: My Learning Collection  
+
+A curated selection of books that are shaping my understanding of **Machine Learning & Artificial Intelligence**. These books provide insights into foundational concepts, deep learning, and generative AI.
+
+---
+
+## 📖 Featured Reads  
+
+<table>
+  <tr style="background-color: #f5f5f5;">
+    <td><img src="https://learning.oreilly.com/library/cover/9781098125967/" width="120"></td>
+    <td>
+      <strong>Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow</strong><br>
+      <em>Author: Aurélien Géron</em><br>
+      <a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/">Read More</a>
+    </td>
+  </tr>
+  <tr style="background-color: #e0f7fa;">
+    <td><img src="https://learning.oreilly.com/library/cover/9781617294433/" width="120"></td>
+    <td>
+      <strong>Deep Learning with Python</strong><br>
+      <em>Author: François Chollet</em><br>
+      <a href="https://www.oreilly.com/library/view/deep-learning-with/9781617294433/">Read More</a>
+    </td>
+  </tr>
+  <tr style="background-color: #f5f5f5;">
+    <td><img src="https://learning.oreilly.com/library/cover/9781492041931/" width="120"></td>
+    <td>
+      <strong>Generative Deep Learning</strong><br>
+      <em>Author: David Foster</em><br>
+      <a href="https://www.oreilly.com/library/view/generative-deep-learning/9781492041931/">Read More</a>
+    </td>
+  </tr>
+</table>
+
+---
+
+
+---
+
