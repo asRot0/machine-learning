@@ -226,6 +226,44 @@ A curated selection of books that are shaping my understanding of **Machine Lear
 </table>
 
 ---
+---
+
+# 📚 AI/ML Bookshelf: My Learning Collection  
+
+A curated selection of books that are shaping my understanding of **Machine Learning & Artificial Intelligence**. These books provide insights into foundational concepts, deep learning, and generative AI.
+
+---
+
+## 📖 Featured Reads  
+
+<table>
+  <tr style="background-color: #1e293b; color: #ffffff;">
+    <td><img src="https://learning.oreilly.com/library/cover/9781098125967/" width="120"></td>
+    <td>
+      <strong>Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow</strong><br>
+      <em>Author: Aurélien Géron</em><br>
+      <a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/" style="color: #ffdd57;">Read More</a>
+    </td>
+  </tr>
+  <tr style="background-color: #e0f2f1;">
+    <td><img src="https://learning.oreilly.com/library/cover/9781617294433/" width="120"></td>
+    <td>
+      <strong>Deep Learning with Python</strong><br>
+      <em>Author: François Chollet</em><br>
+      <a href="https://www.oreilly.com/library/view/deep-learning-with/9781617294433/" style="color: #0077b6;">Read More</a>
+    </td>
+  </tr>
+  <tr style="background-color: #fffbeb;">
+    <td><img src="https://learning.oreilly.com/library/cover/9781492041931/" width="120"></td>
+    <td>
+      <strong>Generative Deep Learning</strong><br>
+      <em>Author: David Foster</em><br>
+      <a href="https://www.oreilly.com/library/view/generative-deep-learning/9781492041931/" style="color: #e63946;">Read More</a>
+    </td>
+  </tr>
+</table>
+
+---
 
 
 ---
