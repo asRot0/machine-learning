@@ -114,7 +114,7 @@ Clustering algorithms like k-Means and DBSCAN are used in unsupervised learning 
 
 ---
 
-### 📚 AI/ML Bookshelf: My Learning Collection
+## AI/ML Bookshelf: My Learning Collection 📚
 
 A curated selection of books that are shaping my understanding of **Machine Learning & Artificial Intelligence**. These books provide insights into foundational concepts, deep learning, and generative AI.
 
