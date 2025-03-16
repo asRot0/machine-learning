@@ -7,6 +7,13 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.utils import image_dataset_from_directory
 
+# Kaggle API: Download and extract dataset
+os.system("mkdir -p ~/.kaggle")
+os.system("cp kaggle.json ~/.kaggle/")
+os.system("chmod 600 ~/.kaggle/kaggle.json")
+os.system("kaggle competitions download -c dogs-vs-cats")
+os.system("unzip -qq train.zip -d .")
+
 # Define dataset paths
 original_dir = pathlib.Path("train")
 new_base_dir = pathlib.Path("cats_vs_dogs_model")
