@@ -24,7 +24,7 @@ plt.figure(figsize=(15, 10))
 
 # Format the x-axis to show date
 plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=60))
+plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=30))
 
 # Use the 'Date' column for x-axis and plot the 'High' and 'Low' stock prices
 plt.plot(stock_data['Date'], stock_data['High'], label='High')
