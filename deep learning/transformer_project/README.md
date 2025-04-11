@@ -37,3 +37,8 @@ transformer_project/
 #### Positional Encoding
     1. PositionalEncoding layer adds position-specific sine/cosine patterns to the input embeddings.
 
+#### Transformer Encoder
+    1. Multi-head self-attention
+    2. Layer normalization & residual connections
+    3. Feed-forward network
+    4. Dropout
