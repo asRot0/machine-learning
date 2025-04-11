@@ -31,3 +31,6 @@ transformer_project/
     3. Uses Scaled Dot-Product Attention to compute attention weights.
     4. Concatenates outputs from all heads and passes through a final dense layer.
 
+#### Feed-Forward Network
+    1. This defines the Position-wise Feed-Forward Network used inside both encoder and decoder blocks.
+
