@@ -34,3 +34,6 @@ transformer_project/
 #### Feed-Forward Network
     1. This defines the Position-wise Feed-Forward Network used inside both encoder and decoder blocks.
 
+#### Positional Encoding
+    1. PositionalEncoding layer adds position-specific sine/cosine patterns to the input embeddings.
+
