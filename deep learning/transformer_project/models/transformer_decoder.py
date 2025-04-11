@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras.layers import LayerNormalization, Dropout
-from models.multi_head_attention import MultiHeadSelfAttention
-from models.feed_forward import FeedForwardNetwork
+from .multi_head_attention import MultiHeadSelfAttention
+from .feed_forward import FeedForwardNetwork
 
 class TransformerDecoderBlock(tf.keras.layers.Layer):
     def __init__(self, embed_size, heads, ff_expansion=4, dropout_rate=0.1):
