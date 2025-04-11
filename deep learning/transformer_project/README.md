@@ -42,3 +42,8 @@ transformer_project/
     2. Layer normalization & residual connections
     3. Feed-forward network
     4. Dropout
+
+#### Transformer Decoder
+    1. Masked self-attention (for autoregressive behavior)
+    2. Encoder-decoder attention
+    3. Feed-forward, residual connections, and normalization
