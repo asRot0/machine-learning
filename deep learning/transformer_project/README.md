@@ -47,3 +47,8 @@ transformer_project/
     1. Masked self-attention (for autoregressive behavior)
     2. Encoder-decoder attention
     3. Feed-forward, residual connections, and normalization
+    
+#### Transformer
+    1. Token embeddings + positional encodings
+    2. A stack of encoder and decoder blocks
+    3. Final linear projection to the target vocabulary
