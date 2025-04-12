@@ -11,7 +11,6 @@ transformer_project/
 │── train.py                     # Training Script
 │── dataset_loader.py             # Data Preprocessing
 │── inference.py                  # Inference & Testing
-│── requirements.txt              # Dependencies
 │── README.md                     # Documentation
 ```
 
