@@ -5,7 +5,7 @@ import pandas as pd
 
 # Load the stock data
 stock_data = pd.read_csv('../datasets/stocks/TSLA/tesla_small.csv')
-# stock_data = pd.read_csv('../datasets/HistoricalPrices (1).csv')
+print(stock_data.shape)
 
 stock_data = stock_data.rename(columns={' Open': 'Open', ' High': 'High', ' Low': 'Low', ' Close': 'Close'})
 
