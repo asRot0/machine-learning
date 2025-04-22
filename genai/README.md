@@ -51,7 +51,7 @@ Learn to generate data by pitting two networks against each other.
 Objective:
 
 $$
-\LARGE \min_G \max_D \mathbb{E}_{x \sim p_{data}}[\log D(x)] + \mathbb{E}_{z \sim p_z}[\log(1 - D(G(z)))]
+\min_G \max_D \mathbb{E}_{x \sim p_{data}}[\log D(x)] + \mathbb{E}_{z \sim p_z}[\log(1 - D(G(z)))]
 $$
 
 ### 🔧 Variants
