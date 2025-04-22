@@ -75,7 +75,7 @@ Model probabilistic latent variables to generate smooth outputs.
 Loss Function:
 
 $$
-\mathcal{L}(x) = \mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)] - D_{KL}(q_\phi(z|x) \| p(z))
+\LARGE \mathcal{L}(x) = \mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)] - D_{KL}(q_\phi(z|x) \| p(z))
 $$
 
 ---
@@ -141,10 +141,11 @@ $$
 q(x_t | x_{t-1}) = \mathcal{N}(x_t; \sqrt{1 - \beta_t}x_{t-1}, \beta_t I)
 $$
 
+
 Reverse Process:
 
 $$
-\theta^* = \arg\min_\theta \mathbb{E}_{x_t, t} \left[ \|\epsilon - \epsilon_\theta(x_t, t)\|^2 \right]
+\LARGE \theta^* = \arg\min_\theta \mathbb{E}_{x_t, t} \left[ \|\epsilon - \epsilon_\theta(x_t, t)\|^2 \right]
 $$
 
 ### 🧩 Variants
