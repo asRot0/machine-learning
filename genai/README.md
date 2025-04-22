@@ -26,6 +26,7 @@ Understanding how neural networks perceive and represent visual features.
 
 ### 🧮 Math
 Convolution:
+
 $$
 Y(i, j) = \sum_m \sum_n X(i + m, j + n) \cdot K(m, n)
 $$
