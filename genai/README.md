@@ -48,6 +48,7 @@ Learn to generate data by pitting two networks against each other.
 - **Discriminator** $D(x)$: Classifies real vs. fake
 
 ### 🧮 Math
+Objective:
 
 ```math
 \LARGE \min_G \max_D \mathbb{E}_{x \sim p_{data}}[\log D(x)] + \mathbb{E}_{z \sim p_z}[\log(1 - D(G(z)))]
@@ -92,7 +93,7 @@ Sequence modeling via attention instead of recurrence.
 Self-Attention:
 
 ```math
-\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+\LARGE \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
 ```
 
 ### 📦 Applications
@@ -116,7 +117,7 @@ Connect images and text into a joint embedding space.
 Contrastive loss:
 
 ```math
-\mathcal{L} = -\log \frac{\exp(\text{sim}(x_i, y_i)/\tau)}{\sum_j \exp(\text{sim}(x_i, y_j)/\tau)}
+\LARGE \mathcal{L} = -\log \frac{\exp(\text{sim}(x_i, y_i)/\tau)}{\sum_j \exp(\text{sim}(x_i, y_j)/\tau)}
 ```
 
 Where $\text{sim}$ is cosine similarity and $\tau$ is a temperature parameter.
@@ -136,9 +137,8 @@ Generate high-fidelity data via denoising process
 ### 🧮 Math
 Forward Process:
 
-
 ```math
-q(x_t | x_{t-1}) = \mathcal{N}(x_t; \sqrt{1 - \beta_t}x_{t-1}, \beta_t I)
+\LARGE q(x_t | x_{t-1}) = \mathcal{N}(x_t; \sqrt{1 - \beta_t}x_{t-1}, \beta_t I)
 ```
 
 Reverse Process:
