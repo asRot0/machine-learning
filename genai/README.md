@@ -27,9 +27,9 @@ Understanding how neural networks perceive and represent visual features.
 ### 🧮 Math
 Convolution:
 
-$$
+```math
 \LARGE Y(i, j) = \sum_m \sum_n X(i + m, j + n) \cdot K(m, n)
-$$
+```
 
 ### 🎨 DeepDream
 - Visualizes patterns learned by a CNN
@@ -50,9 +50,8 @@ Learn to generate data by pitting two networks against each other.
 ### 🧮 Math
 
 ```math
-\min_G \max_D \mathbb{E}_{x \sim p_{data}}[\log D(x)] + \mathbb{E}_{z \sim p_z}[\log(1 - D(G(z)))]
+\LARGE \min_G \max_D \mathbb{E}_{x \sim p_{data}}[\log D(x)] + \mathbb{E}_{z \sim p_z}[\log(1 - D(G(z)))]
 ```
-
 
 ### 🔧 Variants
 - DCGAN (Deep Convolutional GAN)
@@ -74,11 +73,10 @@ Model probabilistic latent variables to generate smooth outputs.
 ### 🧮 Math
 Loss Function:
 
-$$
+```math
 \LARGE \mathcal{L}(x) = \mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x|z)] - D_{KL}(q_\phi(z|x) \| p(z))
-$$
+```
 
-## 
 ---
 
 ## 🧠 Transformers
@@ -93,9 +91,9 @@ Sequence modeling via attention instead of recurrence.
 ### 🧮 Math
 Self-Attention:
 
-$$
+```math
 \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
-$$
+```
 
 ### 📦 Applications
 - GPT, BERT
@@ -117,9 +115,9 @@ Connect images and text into a joint embedding space.
 ### 🧮 Math
 Contrastive loss:
 
-$$
+```math
 \mathcal{L} = -\log \frac{\exp(\text{sim}(x_i, y_i)/\tau)}{\sum_j \exp(\text{sim}(x_i, y_j)/\tau)}
-$$
+```
 
 Where $\text{sim}$ is cosine similarity and $\tau$ is a temperature parameter.
 
@@ -138,16 +136,16 @@ Generate high-fidelity data via denoising process
 ### 🧮 Math
 Forward Process:
 
-$$
-q(x_t | x_{t-1}) = \mathcal{N}(x_t; \sqrt{1 - \beta_t}x_{t-1}, \beta_t I)
-$$
 
+```math
+q(x_t | x_{t-1}) = \mathcal{N}(x_t; \sqrt{1 - \beta_t}x_{t-1}, \beta_t I)
+```
 
 Reverse Process:
 
-$$
+```math
 \LARGE \theta^* = \arg\min_\theta \mathbb{E}_{x_t, t} \left[ \|\epsilon - \epsilon_\theta(x_t, t)\|^2 \right]
-$$
+```
 
 ### 🧩 Variants
 - DDPM (Denoising Diffusion Probabilistic Models)
