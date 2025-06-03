@@ -27,10 +27,10 @@ class Discriminator(keras.Model):
 
 
 class GAN(keras.Model):
-    def __init__(self, generator, discriminator, latent_dim=100):
+    def __init__(self, generator=None, discriminator=None, latent_dim=100):
         super().__init__()
-        self.generator = generator
-        self.discriminator = discriminator
+        self.generator = generator if generator else Generator()
+        self.discriminator = discriminator if discriminator else Discriminator()
         self.latent_dim = latent_dim
 
         self.d_loss_tracker = keras.metrics.Mean(name="d_loss")
