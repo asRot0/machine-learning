@@ -39,7 +39,7 @@ class GAN(keras.Model):
         self.cross_entropy = keras.losses.BinaryCrossentropy()
 
     def compile(self, d_optimizer, g_optimizer):
-        super().compile()
+        super(GAN, self).compile()
         self.d_optimizer = d_optimizer
         self.g_optimizer = g_optimizer
 
