@@ -1,36 +1,64 @@
+import os
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 
 
-class Generator(keras.Model):
-    def __init__(self, latent_dim=100):
-        super().__init__()
-        self.latent_dim = latent_dim
-        self.dense1 = layers.Dense(128, activation="relu")
-        self.dense2 = layers.Dense(784, activation="sigmoid")  # 28*28
-
-    def call(self, inputs):
-        x = self.dense1(inputs)
-        return self.dense2(x)
-
-
 class Discriminator(keras.Model):
     def __init__(self):
-        super().__init__()
-        self.dense1 = layers.Dense(128, activation="relu")
-        self.dense2 = layers.Dense(1, activation="sigmoid")
+        super().__init__(name="discriminator")
+
+        self.model = keras.Sequential([
+            layers.Input(shape=(64, 64, 3)),
+
+            layers.Conv2D(64, kernel_size=4, strides=2, padding="same"),
+            layers.LeakyReLU(alpha=0.2),
+
+            layers.Conv2D(128, kernel_size=4, strides=2, padding="same"),
+            layers.LeakyReLU(alpha=0.2),
+
+            layers.Conv2D(128, kernel_size=4, strides=2, padding="same"),
+            layers.LeakyReLU(alpha=0.2),
+
+            layers.Flatten(),
+            layers.Dropout(0.2),
+            layers.Dense(1, activation="sigmoid")
+        ])
 
     def call(self, inputs):
-        x = self.dense1(inputs)
-        return self.dense2(x)
+        return self.model(inputs)
+
+
+class Generator(keras.Model):
+    def __init__(self, latent_dim=128):
+        super().__init__(name="generator")
+        self.latent_dim = latent_dim
+
+        self.model = keras.Sequential([
+            layers.Dense(8 * 8 * 128, input_shape=(latent_dim,)),
+            layers.Reshape((8, 8, 128)),
+
+            layers.Conv2DTranspose(128, kernel_size=4, strides=2, padding="same"),
+            layers.LeakyReLU(alpha=0.2),
+
+            layers.Conv2DTranspose(256, kernel_size=4, strides=2, padding="same"),
+            layers.LeakyReLU(alpha=0.2),
+
+            layers.Conv2DTranspose(512, kernel_size=4, strides=2, padding="same"),
+            layers.LeakyReLU(alpha=0.2),
+
+            layers.Conv2D(3, kernel_size=5, padding="same", activation="sigmoid")
+        ])
+
+    def call(self, inputs):
+        return self.model(inputs)
 
 
 class GAN(keras.Model):
-    def __init__(self, generator=None, discriminator=None, latent_dim=100):
+    def __init__(self, latent_dim=128):
         super().__init__()
-        self.generator = generator if generator else Generator()
-        self.discriminator = discriminator if discriminator else Discriminator()
+        self.generator = Generator(latent_dim)
+        self.discriminator = Discriminator()
         self.latent_dim = latent_dim
 
         self.d_loss_tracker = keras.metrics.Mean(name="d_loss")
@@ -96,3 +124,23 @@ class GAN(keras.Model):
             "d_loss": self.d_loss_tracker.result(),
             "g_loss": self.g_loss_tracker.result()
         }
+
+
+class GANMonitor(keras.callbacks.Callback):
+    def __init__(self, num_img=4, latent_dim=128, output_dir="generated_images"):
+        super().__init__()
+        self.num_img = num_img
+        self.latent_dim = latent_dim
+        self.seed = tf.random.normal(shape=(num_img, latent_dim))
+        self.output_dir = output_dir
+        os.makedirs(output_dir, exist_ok=True)
+
+    def on_epoch_end(self, epoch, logs=None):
+        generated_images = self.model.generator(self.seed)
+        generated_images *= 255.0
+        generated_images = tf.clip_by_value(generated_images, 0, 255)
+        generated_images = tf.cast(generated_images, tf.uint8).numpy()
+
+        for i in range(self.num_img):
+            img = keras.utils.array_to_img(generated_images[i])
+            img.save(os.path.join(self.output_dir, f"generated_img_{epoch:03d}_{i}.png"))
