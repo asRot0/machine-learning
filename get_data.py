@@ -1,24 +1,17 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-import os
+from datasets import load_dataset
 
-# pd.set_option('display.max_columns', None)
-# pd.options.display.max_columns = None
-os.environ['COLUMNS'] = '200'
+# Load with a custom cache directory
+dataset = load_dataset("wikitext", "wikitext-2-raw-v1", cache_dir="./datasets")
 
-dataset = 'datasets/housing'
-savefig = 'plotfig'
+# Function to save a split
+def save_split_as_txt(split, filename):
+    with open(filename, "w", encoding="utf-8") as f:
+        for item in dataset[split]:
+            text = item['text'].strip()
+            if text:  # Skip empty lines
+                f.write(text + "\n")
 
-housing = pd.read_csv(os.path.join(dataset, 'housing.csv'))
-
-print(housing.head())
-# print(housing.tail())
-print(housing.info())
-print(housing['ocean_proximity'].value_counts())
-print(housing.describe())
-
-housing.hist(bins=50, figsize=(10, 8))
-
-# plt.pause(interval=2)
-# plt.savefig(os.path.join(savefig, 'housing_data.png'))
-plt.show()
+# Save each split
+save_split_as_txt("train", "wikitext2_train.txt")
+save_split_as_txt("validation", "wikitext2_valid.txt")
+save_split_as_txt("test", "wikitext2_test.txt")
