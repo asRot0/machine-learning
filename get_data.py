@@ -12,6 +12,6 @@ def save_split_as_txt(split, filename):
                 f.write(text + "\n")
 
 # Save each split
-save_split_as_txt("train", "wikitext2_train.txt")
-save_split_as_txt("validation", "wikitext2_valid.txt")
-save_split_as_txt("test", "wikitext2_test.txt")
+save_split_as_txt("train", "datasets/wikitext2_train.txt")
+save_split_as_txt("validation", "datasets/wikitext2_valid.txt")
+save_split_as_txt("test", "datasets/wikitext2_test.txt")
