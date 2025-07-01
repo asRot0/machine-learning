@@ -20,7 +20,7 @@ def create_gif(image_folder, output_path="gan_progress.gif", duration=200):
         duration=duration,  # time per frame in ms
         loop=0
     )
-    print(f"✅ GIF saved as: {output_path}")
+    print(f"GIF saved as: {output_path}")
 
 if __name__ == "__main__":
     create_gif(image_folder="generated_images", output_path="gan_training.gif")
