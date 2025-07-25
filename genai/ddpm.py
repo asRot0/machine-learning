@@ -57,3 +57,10 @@ class GaussianDiffusion:
         self.betas = tf.constant(betas, dtype=tf.float32)
         self.alphas_cumprod = tf.constant(alphas_cumprod, dtype=tf.float32)
         self.alphas_cumprod_prev = tf.constant(alphas_cumprod_prev, dtype=tf.float32)
+
+        self.sqrt_alphas_cumprod = tf.constant(np.sqrt(alphas_cumprod), dtype=tf.float32)
+        self.sqrt_one_minus_alphas_cumprod = tf.constant(np.sqrt(1.0 - alphas_cumprod), dtype=tf.float32)
+        self.log_one_minus_alphas_cumprod = tf.constant(np.log(1.0 - alphas_cumprod), dtype=tf.float32)
+        self.sqrt_recip_alphas_cumprod = tf.constant(np.sqrt(1.0 / alphas_cumprod), dtype=tf.float32)
+        self.sqrt_recipm1_alphas_cumprod = tf.constant(np.sqrt(1.0 / alphas_cumprod - 1), dtype=tf.float32)
+
