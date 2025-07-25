@@ -39,7 +39,6 @@ class GaussianDiffusion:
     """
 
     def __init__(self, beta_start=1e-4, beta_end=0.02, timesteps=1000, clip_min=-1.0, clip_max=1.0):
-
         self.beta_start = beta_start
         self.beta_end = beta_end
         self.timesteps = timesteps
@@ -47,7 +46,7 @@ class GaussianDiffusion:
         self.clip_max = clip_max
 
         # linear variance schedule
-        self.betas = betas = np.linspace( beta_start, beta_end, timesteps, dtype=np.float64)
+        self.betas = betas = np.linspace(beta_start, beta_end, timesteps, dtype=np.float64)
         self.num_timesteps = int(timesteps)
 
         alphas = 1.0 - betas
@@ -64,3 +63,12 @@ class GaussianDiffusion:
         self.sqrt_recip_alphas_cumprod = tf.constant(np.sqrt(1.0 / alphas_cumprod), dtype=tf.float32)
         self.sqrt_recipm1_alphas_cumprod = tf.constant(np.sqrt(1.0 / alphas_cumprod - 1), dtype=tf.float32)
 
+        posterior_variance = (betas * (1.0 - alphas_cumprod_prev) / (1.0 - alphas_cumprod))
+        self.posterior_variance = tf.constant(posterior_variance, dtype=tf.float32)
+
+        self.posterior_log_variance_clipped = tf.constant(np.log(np.maximum(posterior_variance, 1e-20)),
+                                                          dtype=tf.float32)
+        self.posterior_mean_coef1 = tf.constant(betas * np.sqrt(alphas_cumprod_prev) / (1.0 - alphas_cumprod),
+                                                dtype=tf.float32)
+        self.posterior_mean_coef2 = tf.constant((1.0 - alphas_cumprod_prev) * np.sqrt(alphas) / (1.0 - alphas_cumprod),
+                                                dtype=tf.float32)
