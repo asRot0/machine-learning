@@ -72,3 +72,18 @@ class GaussianDiffusion:
                                                 dtype=tf.float32)
         self.posterior_mean_coef2 = tf.constant((1.0 - alphas_cumprod_prev) * np.sqrt(alphas) / (1.0 - alphas_cumprod),
                                                 dtype=tf.float32)
+
+    def _extract(self, a, t, x_shape):
+        """Extract some coefficients at specified timesteps,
+        then reshape to [batch_size, 1, 1, 1, 1, ...] for broadcasting purposes.
+
+        Args:
+            a: Tensor to extract from
+            t: Timestep for which the coefficients are to be extracted
+            x_shape: Shape of the current batched samples
+        """
+
+        batch_size = x_shape[0]
+        out = tf.gather(a, t)
+        return tf.reshape(out, [batch_size, 1, 1, 1])
+
