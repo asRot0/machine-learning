@@ -82,7 +82,6 @@ class GaussianDiffusion:
             t: Timestep for which the coefficients are to be extracted
             x_shape: Shape of the current batched samples
         """
-
         batch_size = x_shape[0]
         out = tf.gather(a, t)
         return tf.reshape(out, [batch_size, 1, 1, 1])
