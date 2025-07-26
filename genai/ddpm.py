@@ -98,3 +98,17 @@ class GaussianDiffusion:
         variance = self._extract(1.0 - self.alphas_cumprod, t, x_start_shape)
         log_variance = self._extract(self.log_one_minus_alphas_cumprod, t, x_start_shape)
         return mean, variance, log_variance
+
+    def q_sample(self, x_start, t, noise):
+        """Diffuse the data.
+
+        Args:
+            x_start: Initial sample (before the first diffusion step)
+            t: Current timestep
+            noise: Gaussian noise to be added at the current timestep
+        Returns:
+            Diffused samples at timestep `t`
+        """
+        x_start_shape = tf.shape(x_start)
+        return (self._extract(self.sqrt_alphas_cumprod, t, x_start_shape) * x_start
+            + self._extract(self.sqrt_one_minus_alphas_cumprod, t, x_start_shape) * noise)
