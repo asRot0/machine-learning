@@ -112,3 +112,8 @@ class GaussianDiffusion:
         x_start_shape = tf.shape(x_start)
         return (self._extract(self.sqrt_alphas_cumprod, t, x_start_shape) * x_start
             + self._extract(self.sqrt_one_minus_alphas_cumprod, t, x_start_shape) * noise)
+
+    def predict_start_from_noise(self, x_t, t, noise):
+        x_t_shape = tf.shape(x_t)
+        return (self._extract(self.sqrt_recip_alphas_cumprod, t, x_t_shape) * x_t
+            - self._extract(self.sqrt_recipm1_alphas_cumprod, t, x_t_shape) * noise)
