@@ -97,7 +97,5 @@ class GaussianDiffusion:
         x_start_shape = tf.shape(x_start)
         mean = self._extract(self.sqrt_alphas_cumprod, t, x_start_shape) * x_start
         variance = self._extract(1.0 - self.alphas_cumprod, t, x_start_shape)
-        log_variance = self._extract(
-            self.log_one_minus_alphas_cumprod, t, x_start_shape
-        )
+        log_variance = self._extract(self.log_one_minus_alphas_cumprod, t, x_start_shape)
         return mean, variance, log_variance
