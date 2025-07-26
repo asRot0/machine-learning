@@ -87,3 +87,17 @@ class GaussianDiffusion:
         out = tf.gather(a, t)
         return tf.reshape(out, [batch_size, 1, 1, 1])
 
+    def q_mean_variance(self, x_start, t):
+        """Extracts the mean, and the variance at current timestep.
+
+        Args:
+            x_start: Initial sample (before the first diffusion step)
+            t: Current timestep
+        """
+        x_start_shape = tf.shape(x_start)
+        mean = self._extract(self.sqrt_alphas_cumprod, t, x_start_shape) * x_start
+        variance = self._extract(1.0 - self.alphas_cumprod, t, x_start_shape)
+        log_variance = self._extract(
+            self.log_one_minus_alphas_cumprod, t, x_start_shape
+        )
+        return mean, variance, log_variance
