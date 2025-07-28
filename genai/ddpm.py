@@ -117,3 +117,22 @@ class GaussianDiffusion:
         x_t_shape = tf.shape(x_t)
         return (self._extract(self.sqrt_recip_alphas_cumprod, t, x_t_shape) * x_t
             - self._extract(self.sqrt_recipm1_alphas_cumprod, t, x_t_shape) * noise)
+
+    def q_posterior(self, x_start, x_t, t):
+        """Compute the mean and variance of the diffusion
+        posterior q(x_{t-1} | x_t, x_0).
+
+        Args:
+            x_start: Stating point(sample) for the posterior computation
+            x_t: Sample at timestep `t`
+            t: Current timestep
+        Returns:
+            Posterior mean and variance at current timestep
+        """
+
+        x_t_shape = tf.shape(x_t)
+        posterior_mean = (self._extract(self.posterior_mean_coef1, t, x_t_shape) * x_start
+                          + self._extract(self.posterior_mean_coef2, t, x_t_shape) * x_t)
+        posterior_variance = self._extract(self.posterior_variance, t, x_t_shape)
+        posterior_log_variance_clipped = self._extract(self.posterior_log_variance_clipped, t, x_t_shape)
+        return posterior_mean, posterior_variance, posterior_log_variance_clipped
