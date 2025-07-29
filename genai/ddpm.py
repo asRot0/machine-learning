@@ -138,3 +138,11 @@ class GaussianDiffusion:
         posterior_variance = self._extract(self.posterior_variance, t, x_t_shape)
         posterior_log_variance_clipped = self._extract(self.posterior_log_variance_clipped, t, x_t_shape)
         return posterior_mean, posterior_variance, posterior_log_variance_clipped
+
+    def p_mean_variance(self, pred_noise, x, t, clip_denoised=True):
+        x_recon = self.predict_start_from_noise(x, t=t, noise=pred_noise)
+        if clip_denoised:
+            x_recon = tf.clip_by_value(x_recon, self.clip_min, self.clip_max)
+
+        model_mean, posterior_variance, posterior_log_variance = self.q_posterior(x_start=x_recon, x_t=x, t=t)
+        return model_mean, posterior_variance, posterior_log_variance
