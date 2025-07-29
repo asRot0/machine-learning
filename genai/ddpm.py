@@ -146,3 +146,19 @@ class GaussianDiffusion:
 
         model_mean, posterior_variance, posterior_log_variance = self.q_posterior(x_start=x_recon, x_t=x, t=t)
         return model_mean, posterior_variance, posterior_log_variance
+
+    def p_sample(self, pred_noise, x, t, clip_denoised=True):
+        """Sample from the diffusion model.
+
+        Args:
+            pred_noise: Noise predicted by the diffusion model
+            x: Samples at a given timestep for which the noise was predicted
+            t: Current timestep
+            clip_denoised (bool): Whether to clip the predicted noise
+                within the specified range or not.
+        """
+        model_mean, _, model_log_variance = self.p_mean_variance(pred_noise, x=x, t=t, clip_denoised=clip_denoised)
+        noise = tf.random.normal(shape=x.shape, dtype=x.dtype)
+        # No noise when t == 0
+        nonzero_mask = tf.reshape(1 - tf.cast(tf.equal(t, 0), tf.float32), [tf.shape(x)[0], 1, 1, 1])
+        return model_mean + nonzero_mask * tf.exp(0.5 * model_log_variance) * noise
