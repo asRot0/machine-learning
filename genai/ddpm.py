@@ -162,3 +162,9 @@ class GaussianDiffusion:
         # No noise when t == 0
         nonzero_mask = tf.reshape(1 - tf.cast(tf.equal(t, 0), tf.float32), [tf.shape(x)[0], 1, 1, 1])
         return model_mean + nonzero_mask * tf.exp(0.5 * model_log_variance) * noise
+
+# network architecture
+def kernel_init(scale):
+    scale = max(scale, 1e-10)
+    return keras.initializers.VarianceScaling(scale, mode='fan_avg', distribution='uniform')
+
