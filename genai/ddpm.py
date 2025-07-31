@@ -168,3 +168,21 @@ def kernel_init(scale):
     scale = max(scale, 1e-10)
     return keras.initializers.VarianceScaling(scale, mode='fan_avg', distribution='uniform')
 
+class AttentionBlock(layers.Layer):
+    """Applies self-attention.
+
+    Args:
+        units: Number of units in the dense layers
+        groups: Number of groups to be used for GroupNormalization layer
+    """
+
+    def __init__(self, units, groups=8, **kwargs):
+        super().__init__(**kwargs)
+        self.units = units
+        self.groups = groups
+
+        self.norm = layers.GroupNormalization(groups=groups)
+        self.query = layers.Dense(units, kernel_initializer=kernel_init(1.0))
+        self.key = layers.Dense(units, kernel_initializer=kernel_init(1.0))
+        self.value = layers.Dense(units, kernel_initializer=kernel_init(1.0))
+        self.proj = layers.Dense(units, kernel_initializer=kernel_init(0.0))
