@@ -186,3 +186,25 @@ class AttentionBlock(layers.Layer):
         self.key = layers.Dense(units, kernel_initializer=kernel_init(1.0))
         self.value = layers.Dense(units, kernel_initializer=kernel_init(1.0))
         self.proj = layers.Dense(units, kernel_initializer=kernel_init(0.0))
+
+    def call(self, inputs):
+        batch_size = tf.shape(inputs)[0]
+        height = tf.shape(inputs)[1]
+        width = tf.shape(inputs)[2]
+        scale = tf.cast(self.units, tf.float32) ** (-0.5)
+
+        inputs = self.norm(inputs)
+        q = self.query(inputs)
+        k = self.key(inputs)
+        v = self.value(inputs)
+
+        attn_score = tf.einsum("bhwc, bHWc->bhwHW", q, k) * scale
+        attn_score = tf.reshape(attn_score, [batch_size, height, width, height * width])
+
+        attn_score = tf.nn.softmax(attn_score, -1)
+        attn_score = tf.reshape(attn_score, [batch_size, height, width, height, width])
+
+        proj = tf.einsum("bhwHW,bHWc->bhwc", attn_score, v)
+        proj = self.proj(proj)
+        return inputs + proj
+        
