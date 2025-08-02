@@ -280,3 +280,16 @@ def build_model(img_size, img_channels, widths, has_attention, num_res_blocks=2,
     temb = TimeMLP(units=first_conv_channels * 4, activation_fn=activation_fn)(temb)
 
     skips = [x]
+
+    # DownBlock
+    for i in range(len(widths)):
+        for _ in range(num_res_blocks):
+            x = ResidualBlock(widths[i], groups=norm_groups, activation_fn=activation_fn)([x, temb])
+
+            if has_attention[i]:
+                x = AttentionBlock(widths[i], groups=norm_groups)(x)
+            skips.append(x)
+
+        if widths[i] != widths[-1]:
+            x = DownSample(widths[i])(x)
+            skips.append(x)
