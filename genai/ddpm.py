@@ -293,3 +293,8 @@ def build_model(img_size, img_channels, widths, has_attention, num_res_blocks=2,
         if widths[i] != widths[-1]:
             x = DownSample(widths[i])(x)
             skips.append(x)
+
+    # MiddleBlock
+    x = ResidualBlock(widths[-1], groups=norm_groups, activation_fn=activation_fn)([x, temb])
+    x = AttentionBlock(widths[-1], groups=norm_groups)(x)
+    x = ResidualBlock(widths[-1], groups=norm_groups, activation_fn=activation_fn)([x, temb])
