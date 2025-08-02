@@ -253,3 +253,10 @@ def DownSample(width):
         x = layers.Conv2D(width, kernel_size=3, strides=2, padding="same", kernel_initializer=kernel_init(1.0))(x)
         return x
     return apply
+
+def UpSample(width, interpolation="nearest"):
+    def apply(x):
+        x = layers.UpSampling2D(size=2, interpolation=interpolation)(x)
+        x = layers.Conv2D(width, kernel_size=3, padding="same", kernel_initializer=kernel_init(1.0))(x)
+        return x
+    return apply
