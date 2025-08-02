@@ -260,3 +260,10 @@ def UpSample(width, interpolation="nearest"):
         x = layers.Conv2D(width, kernel_size=3, padding="same", kernel_initializer=kernel_init(1.0))(x)
         return x
     return apply
+
+def TimeMLP(units, activation_fn=keras.activations.swish):
+    def apply(inputs):
+        temb = layers.Dense(units, activation=activation_fn, kernel_initializer=kernel_init(1.0))(inputs)
+        temb = layers.Dense(units, kernel_initializer=kernel_init(1.0))(temb)
+        return temb
+    return apply
