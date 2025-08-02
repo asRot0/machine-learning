@@ -267,3 +267,16 @@ def TimeMLP(units, activation_fn=keras.activations.swish):
         temb = layers.Dense(units, kernel_initializer=kernel_init(1.0))(temb)
         return temb
     return apply
+
+def build_model(img_size, img_channels, widths, has_attention, num_res_blocks=2, norm_groups=8, interpolation="nearest",
+                activation_fn=keras.activations.swish):
+    image_input = layers.Input(shape=(img_size, img_size, img_channels), name="image_input")
+    time_input = keras.Input(shape=(), dtype=tf.int64, name="time_input")
+
+    x = layers.Conv2D(first_conv_channels, kernel_size=(3, 3), padding="same",
+                      kernel_initializer=kernel_init(1.0))(image_input)
+
+    temb = TimeEmbedding(dim=first_conv_channels * 4)(time_input)
+    temb = TimeMLP(units=first_conv_channels * 4, activation_fn=activation_fn)(temb)
+
+    skips = [x]
