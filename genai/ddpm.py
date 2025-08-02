@@ -247,3 +247,9 @@ def ResidualBlock(width, groups=8, activation_fn=keras.activations.swish):
         x = layers.Add()([x, residual])
         return x
     return apply
+
+def DownSample(width):
+    def apply(x):
+        x = layers.Conv2D(width, kernel_size=3, strides=2, padding="same", kernel_initializer=kernel_init(1.0))(x)
+        return x
+    return apply
