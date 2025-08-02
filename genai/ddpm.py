@@ -221,3 +221,29 @@ class TimeEmbedding(layers.Layer):
         emb = inputs[:, None] * self.emb[None, :]
         emb = tf.concat([tf.sin(emb), tf.cos(emb)], axis=-1)
         return emb
+
+def ResidualBlock(width, groups=8, activation_fn=keras.activations.swish):
+    def apply(inputs):
+        x, t = inputs
+        input_width = x.shape[3]
+
+        if input_width == width:
+            residual = x
+        else:
+            residual = layers.Conv2D(width, kernel_size=1, kernel_initializer=kernel_init(1.0))(x)
+
+        temb = activation_fn(t)
+        temb = layers.Dense(width, kernel_initializer=kernel_init(1.0))(temb)[:, None, None, :]
+
+        x = layers.GroupNormalization(groups=groups)(x)
+        x = activation_fn(x)
+        x = layers.Conv2D(width, kernel_size=3, padding="same", kernel_initializer=kernel_init(1.0))(x)
+
+        x = layers.Add()([x, temb])
+        x = layers.GroupNormalization(groups=groups)(x)
+        x = activation_fn(x)
+
+        x = layers.Conv2D(width, kernel_size=3, padding="same", kernel_initializer=kernel_init(0.0))(x)
+        x = layers.Add()([x, residual])
+        return x
+    return apply
