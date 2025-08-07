@@ -308,3 +308,9 @@ def build_model(img_size, img_channels, widths, has_attention, num_res_blocks=2,
                 x = AttentionBlock(widths[i], groups=norm_groups)(x)
         if i != 0:
             x = UpSample(widths[i], interpolation=interpolation)(x)
+
+    # End block
+    x = layers.GroupNormalization(groups=norm_groups)(x)
+    x = activation_fn(x)
+    x = layers.Conv2D(3, (3, 3), padding="same", kernel_initializer=kernel_init(0.0))(x)
+    return keras.Model([image_input, time_input], x, name="unet")
