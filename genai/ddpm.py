@@ -298,3 +298,13 @@ def build_model(img_size, img_channels, widths, has_attention, num_res_blocks=2,
     x = ResidualBlock(widths[-1], groups=norm_groups, activation_fn=activation_fn)([x, temb])
     x = AttentionBlock(widths[-1], groups=norm_groups)(x)
     x = ResidualBlock(widths[-1], groups=norm_groups, activation_fn=activation_fn)([x, temb])
+    
+    # UpBlock
+    for i in reversed(range(len(widths))):
+        for _ in range(num_res_blocks + 1):
+            x = layers.Concatenate(axis=-1)([x, skips.pop()])
+            x = ResidualBlock(widths[i], groups=norm_groups, activation_fn=activation_fn)([x, temb])
+            if has_attention[i]:
+                x = AttentionBlock(widths[i], groups=norm_groups)(x)
+        if i != 0:
+            x = UpSample(widths[i], interpolation=interpolation)(x)
