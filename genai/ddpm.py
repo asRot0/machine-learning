@@ -357,3 +357,16 @@ class DiffusionModel(keras.Model):
 
         # 10. Return loss values
         return {"loss": loss}
+
+    def generate_images(self, num_images=16):
+        # 1. Randomly sample noise (starting point for reverse process)
+        samples = tf.random.normal(shape=(num_images, img_size, img_size, img_channels), dtype=tf.float32)
+
+        # 2. Sample from the model iteratively
+        for t in reversed(range(0, self.timesteps)):
+            tt = tf.cast(tf.fill(num_images, t), dtype=tf.int64)
+            pred_noise = self.ema_network.predict([samples, tt], verbose=0, batch_size=num_images)
+            samples = self.gdf_util.p_sample(pred_noise, samples, tt, clip_denoised=True)
+
+        # 3. Return generated samples
+        return samples
