@@ -430,3 +430,11 @@ model.compile(
     loss=keras.losses.MeanSquaredError(),
     optimizer=keras.optimizers.Adam(learning_rate=learning_rate),
 )
+
+# Train the model
+model.fit(
+    train_ds,
+    epochs=num_epochs,
+    batch_size=batch_size,
+    callbacks=[keras.callbacks.LambdaCallback(on_epoch_end=model.plot_images)],
+)
