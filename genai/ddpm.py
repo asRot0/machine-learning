@@ -370,3 +370,24 @@ class DiffusionModel(keras.Model):
 
         # 3. Return generated samples
         return samples
+
+    def plot_images(self, epoch=None, logs=None, num_rows=2, num_cols=8, figsize=(12, 5)):
+        """Utility to plot images using the diffusion model during training."""
+        generated_samples = self.generate_images(num_images=num_rows * num_cols)
+        generated_samples = (
+            tf.clip_by_value(generated_samples * 127.5 + 127.5, 0.0, 255.0)
+            .numpy()
+            .astype(np.uint8)
+        )
+
+        _, ax = plt.subplots(num_rows, num_cols, figsize=figsize)
+        for i, image in enumerate(generated_samples):
+            if num_rows == 1:
+                ax[i].imshow(image)
+                ax[i].axis("off")
+            else:
+                ax[i // num_cols, i % num_cols].imshow(image)
+                ax[i // num_cols, i % num_cols].axis("off")
+
+        plt.tight_layout()
+        plt.show()
