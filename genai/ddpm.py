@@ -391,3 +391,14 @@ class DiffusionModel(keras.Model):
 
         plt.tight_layout()
         plt.show()
+
+# Build the unet model
+network = build_model(
+    img_size=img_size,
+    img_channels=img_channels,
+    widths=widths,
+    has_attention=has_attention,
+    num_res_blocks=num_res_blocks,
+    norm_groups=norm_groups,
+    activation_fn=keras.activations.swish,
+)
