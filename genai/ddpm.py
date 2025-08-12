@@ -324,3 +324,36 @@ class DiffusionModel(keras.Model):
         self.timesteps = timesteps
         self.gdf_util = gdf_util
         self.ema = ema
+
+    def train_step(self, images):
+        # 1. Get the batch size
+        batch_size = tf.shape(images)[0]
+
+        # 2. Sample timesteps uniformly
+        t = tf.random.uniform(minval=0, maxval=self.timesteps, shape=(batch_size,), dtype=tf.int64)
+
+        with tf.GradientTape() as tape:
+            # 3. Sample random noise to be added to the images in the batch
+            noise = tf.random.normal(shape=tf.shape(images), dtype=images.dtype)
+
+            # 4. Diffuse the images with noise
+            images_t = self.gdf_util.q_sample(images, t, noise)
+
+            # 5. Pass the diffused images and time steps to the network
+            pred_noise = self.network([images_t, t], training=True)
+
+            # 6. Calculate the loss
+            loss = self.loss(noise, pred_noise)
+
+        # 7. Get the gradients
+        gradients = tape.gradient(loss, self.network.trainable_weights)
+
+        # 8. Update the weights of the network
+        self.optimizer.apply_gradients(zip(gradients, self.network.trainable_weights))
+
+        # 9. Updates the weight values for the network with EMA weights
+        for weight, ema_weight in zip(self.network.weights, self.ema_network.weights):
+            ema_weight.assign(self.ema * ema_weight + (1 - self.ema) * weight)
+
+        # 10. Return loss values
+        return {"loss": loss}
