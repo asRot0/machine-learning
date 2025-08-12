@@ -402,3 +402,14 @@ network = build_model(
     norm_groups=norm_groups,
     activation_fn=keras.activations.swish,
 )
+
+ema_network = build_model(
+    img_size=img_size,
+    img_channels=img_channels,
+    widths=widths,
+    has_attention=has_attention,
+    num_res_blocks=num_res_blocks,
+    norm_groups=norm_groups,
+    activation_fn=keras.activations.swish,
+)
+ema_network.set_weights(network.get_weights())  # initially the weights are the same
