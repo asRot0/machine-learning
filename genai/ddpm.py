@@ -424,3 +424,9 @@ model = DiffusionModel(
     gdf_util=gdf_util,
     timesteps=total_timesteps,
 )
+
+# Compile the model
+model.compile(
+    loss=keras.losses.MeanSquaredError(),
+    optimizer=keras.optimizers.Adam(learning_rate=learning_rate),
+)
