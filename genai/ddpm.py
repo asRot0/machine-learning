@@ -413,3 +413,14 @@ ema_network = build_model(
     activation_fn=keras.activations.swish,
 )
 ema_network.set_weights(network.get_weights())  # initially the weights are the same
+
+# Get an instance of the Gaussian Diffusion utilities
+gdf_util = GaussianDiffusion(timesteps=total_timesteps)
+
+# Get the model
+model = DiffusionModel(
+    network=network,
+    ema_network=ema_network,
+    gdf_util=gdf_util,
+    timesteps=total_timesteps,
+)
